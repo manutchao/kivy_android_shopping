@@ -1,0 +1,27 @@
+{
+    "mi band 5": {
+        "name": "mi band 5",
+        "barcode": "6934177720017",
+        "note": 5,
+        "store": {
+            "Westfield Rosny 2": {
+                "address": "Av. du Général de Gaulle",
+                "postal_code": "93117",
+                "city": "Rosny-sous-Bois",
+				"price": "5.2"
+            }
+        }
+    },
+    "mixa instensif peau sèche": {
+        "name": "mixa instensif peau sèche",
+        "barcode": "3058320002034"
+    },
+    "Volvic eau naturelle": {
+        "name": "Volvic eau naturelle",
+        "barcode": "3057640257773"
+    },
+    "San Pelegrino": {
+        "name": "San Pelegrino",
+        "barcode": "8002270014901"
+    }
+}
