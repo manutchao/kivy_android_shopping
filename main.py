@@ -1,19 +1,23 @@
 import json
-
+import logging
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import NoTransition, Screen, ScreenManager
 from kivy.uix.scrollview import ScrollView
 from kivy_garden.zbarcam import ZBarCam
 from kivymd.app import MDApp
-from kivymd.uix.bottomnavigation import (MDBottomNavigation,
-                                         MDBottomNavigationItem)
+from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDFlatButton, MDRaisedButton
+from kivymd.uix.button import MDIconButton
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.label import MDLabel
 from kivymd.uix.list import MDList, OneLineListItem
 from kivymd.uix.textfield import MDTextField
 from kivymd.uix.toolbar import MDTopAppBar
+from kivy.metrics import dp
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 class MainScreen(Screen):
@@ -28,11 +32,48 @@ class ExampleApp(MDApp):
     dialog = None
 
     def on_symbols(self, instance, symbols):
+
         print(symbols)
+        barcode = ""
+        if symbols:
+            for symbol in symbols:
+                data_value = symbol.data
+                barcode = data_value.decode("utf-8")
+        print(barcode)
+
+        # barcode = ", ".join([str(symbol.data) for symbol in symbols])
+        # print(barcode)
+        # print(barcode.data)
+        # print(barcode.decode("utf-8"))
+        # if not self.dialog:
+        #     self.dialog = MDDialog(text=barcode)
+        # self.dialog.open()
+
+        if self.find_item_in_json_by_barcode(barcode):
+            print(self.find_item_in_json_by_barcode(barcode))
+            self.show_detail_screen(
+                self.find_item_in_json_by_barcode(barcode).get("name")
+            )
+            logger.info("Article found")
+        else:
+            self.dialog = MDDialog(text=f"L'article scanné {barcode}n'existe pas")
+            logger.info("Article not found")
+        self.dialog.open()
 
     def load_json_data(self):
         with open("database.json", "r") as f:
             return json.load(f)
+
+    def find_item_in_json_by_barcode(self, barcode):
+        data = self.load_json_data()
+        print(1)
+        for key, value in data.items():
+            print(2)
+            if value.get("barcode") == barcode:
+                print(3)
+                print(value)
+                return value
+        return None
 
     def find_item_in_json(self, item):
         data = self.load_json_data()
@@ -146,7 +187,9 @@ class ExampleApp(MDApp):
         self.zbarcam_layout.size_hint_y = 1
 
     def show_detail_screen(self, text):
+        print(0000000)
         element = self.find_item_in_json(text)
+        print(0000000)
         detail_screen = self.screen_manager.get_screen("detail")
         detail_layout = BoxLayout(orientation="vertical")
 
@@ -162,6 +205,24 @@ class ExampleApp(MDApp):
 
         detail_label2 = MDLabel(text=element.get("barcode"), halign="center")
         detail_layout.add_widget(detail_label2)
+
+        # Création du MDBoxLayout pour aligner horizontalement l'icône et le label
+        h_layout = MDBoxLayout(
+            orientation="horizontal", size_hint_y=None, height=dp(48), spacing=dp(10)
+        )
+
+        # Ajout de l'icône
+        icon_button = MDIconButton(
+            icon="barcode", size_hint=(None, None), size=(dp(24), dp(24))
+        )
+        h_layout.add_widget(icon_button)
+
+        # Ajout du label
+        label = MDLabel(text="Home", halign="center", size_hint_y=None, height=dp(24))
+        h_layout.add_widget(label)
+
+        # Ajout du MDBoxLayout au layout principal
+        detail_layout.add_widget(h_layout)
 
         detail_screen.clear_widgets()
         detail_screen.add_widget(detail_layout)
