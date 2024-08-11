@@ -1,0 +1,42 @@
+<MyScreenManager>:
+    AccueilScreen:
+    DatabaseScreen:
+    SaisieManuelleScreen:
+    ScannerScreen:
+
+BoxLayout:
+    orientation: 'vertical'
+
+    MDTopAppBar:
+        title: "My KivyMD App"
+        elevation: 10
+        left_action_items: [['menu', lambda x: app.on_menu_pressed()]]
+        right_action_items: [['dots-vertical', lambda x: app.on_menu_pressed()]]
+
+    MyScreenManager:
+        id: screen_manager
+
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            name: 'accueil'
+            text: 'Accueil'
+            icon: 'home'
+            on_tab_press: screen_manager.current = 'accueil'
+
+        MDBottomNavigationItem:
+            name: 'database'
+            text: 'Database'
+            icon: 'database'
+            on_tab_press: screen_manager.current = 'database'
+
+        MDBottomNavigationItem:
+            name: 'saisie_manuelle'
+            text: 'Saisie'
+            icon: 'pencil'
+            on_tab_press: screen_manager.current = 'saisie_manuelle'
+
+        MDBottomNavigationItem:
+            name: 'scanner'
+            text: 'Scanner'
+            icon: 'barcode-scan'
+            on_tab_press: screen_manager.current = 'scanner'

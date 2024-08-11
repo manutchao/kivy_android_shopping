@@ -1,30 +1,32 @@
-<DetailScreen>:
+<SaisieManuelleScreen>:
+    name: 'saisie_manuelle'
+
     BoxLayout:
         orientation: 'vertical'
-        
-        MDTopAppBar:
-            title: "Detail"
-            left_action_items: [["arrow-left", lambda x: app.show_main_screen()]]
-            right_action_items: [["delete", lambda x: app.delete_item()]]
 
 
         BoxLayout:
             orientation: 'vertical'
-            padding: dp(20)
-            spacing: dp(20)
+            # padding: dp(5)
+            # spacing: dp(5)
             
             MDTextField:
-                id: text_field1
+                id: field_libelle
                 hint_text: "Saisir libelle"
+                mode: "rectangle"
+            MDTextField:
+
+                id: field_brand
+                hint_text: "Saisir marque"
                 mode: "rectangle"
 
             MDTextField:
-                id: text_field2
+                id: field_barcode
                 hint_text: "Saisir code barre"
                 mode: "rectangle"
             
             MDTextField:
-                id: comment_field
+                id: field_comment
                 hint_text: "Saisir commentaire"
                 mode: "rectangle"
                 multiline: True
@@ -34,7 +36,7 @@
                 halign: "center"
             
             MDSlider:
-                id: slider
+                id: field_note
                 min: 1
                 max: 10
                 value: 5
@@ -53,7 +55,7 @@
                     theme_text_color: "Custom"
                     text_color: "white"
                     line_color: "green"
-                    on_release: app.submit()
+                    on_release: root.validate_form()
 
                 MDRectangleFlatButton:
                     text: "Effacer"
