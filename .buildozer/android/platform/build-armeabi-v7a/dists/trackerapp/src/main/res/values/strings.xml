@@ -6,7 +6,7 @@
         
     </style>
     <string name="app_name">Gestion Funko Pop</string>
-    <string name="private_version">f08058f44690c0e6beeb6bbbf3ab9dc772700b44</string>
+    <string name="private_version">e2837c8d97ec2846dbe2a6b7171d315d3ce2e3ff</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>

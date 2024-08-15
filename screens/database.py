@@ -1,6 +1,7 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.list import OneLineListItem
 import json
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 
 class DatabaseScreen(MDScreen):
@@ -16,7 +17,6 @@ class DatabaseScreen(MDScreen):
 
             self.ids.data_list.clear_widgets()
 
-            print(data)
             for product_dict in data:
                 for product_name, details in product_dict.items():
 
@@ -53,14 +53,10 @@ class DatabaseScreen(MDScreen):
 
     def on_item_click(self, item_title, item_data):
         """Redirige vers la page d'ajout avec les champs pré-remplis."""
-        # Obtenir l'écran d'ajout
-        add_screen = self.manager.get_screen("saisie_manuelle")
-        print(item_data)
-        print(item_data.get("marque", None))
-        # Remplir les champs avec les données de l'élément sélectionné
+        add_screen = self.manager.get_screen("content_item")
         add_screen.ids.field_libelle.text = item_title
         add_screen.ids.field_brand.text = item_data.get("brand", None)
+        add_screen.ids.field_barcode.text = item_data.get("barcode", None)
         add_screen.ids.field_comment.text = item_data.get("commentaire", None)
-        add_screen.ids.field_note.value = item_data.get("note", None)
-        # Rediriger vers l'écran d'ajout
-        self.manager.current = "saisie_manuelle"
+        add_screen.ids.field_note.text = str(item_data.get("note", None))
+        self.manager.current = "content_item"

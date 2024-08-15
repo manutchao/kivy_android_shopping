@@ -1,0 +1,146 @@
+<ContentItemScreen>:
+    name: 'content_item'
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: [dp(20), dp(10), dp(20), dp(10)]
+        spacing: dp(10)  # Ajoute de l'espace entre les sections
+
+
+        # BoxLayout pour l'image
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: dp(300)  # Hauteur fixe pour l'image
+            padding: [dp(0), dp(0), dp(0), dp(10)]  # Ajoute un padding en bas pour créer de l'espace entre l'image et les labels
+
+            FitImage:
+                source: "152.png"
+                size_hint: (1, None)
+                height: dp(260)  # Ajustez cette valeur pour que l'image prenne la place souhaitée
+                allow_stretch: True  # Permet à l'image de s'étirer dans la zone donnée
+                keep_ratio: True  # Conserve le ratio de l'image
+
+        # BoxLayout pour les labels
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: dp(10)  # Ajuste l'espacement entre les labels
+            size_hint_y: None
+            height: self.minimum_height
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(30)  # Hauteur fixe pour chaque ligne de labels pour assurer un espacement uniforme
+
+                MDLabel:
+                    text: "Libelle : "
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: field_libelle
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(30)  # Hauteur fixe pour chaque ligne de labels
+
+                MDLabel:
+                    text: "Marque : "
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: field_brand
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(30)  # Hauteur fixe pour chaque ligne de labels
+
+                MDLabel:
+                    text: "Code-Barre : "
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: field_barcode
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(30)  # Hauteur fixe pour chaque ligne de labels
+
+                MDLabel:
+                    text: "Commentaire : "
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: field_comment
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: dp(30)  # Hauteur fixe pour chaque ligne de labels
+
+                MDLabel:
+                    text: "Note : "
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    id: field_note
+                    halign: 'left'
+                    text_color: "white"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+        # BoxLayout pour les boutons
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: self.minimum_size
+            spacing: dp(20)
+            pos_hint: {"center_x": 0.5}
+
+            MDRectangleFlatButton:
+                text: "Modifier"
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: "green"
+                on_release: root.edit_item()
+
+            MDRectangleFlatButton:
+                text: "Supprimer"
+                theme_text_color: "Custom"
+                text_color: "white"
+                line_color: "red"
+                on_release: root.delete_item()

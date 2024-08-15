@@ -1,33 +1,35 @@
 [
     {
         "mi band 5": {
-            "name": "mi band 5",
+            "libelle": "mi band 5",
+            "brand": "xiaomi",
             "barcode": "6934177720017",
             "note": 5
         },
         "mixa instensif peau s\u00e8che": {
-            "name": "mixa instensif peau s\u00e8che",
-            "barcode": "3058320002034"
+            "libelle": "mixa instensif peau s\u00e8che",
+            "brand": "mixa",
+            "barcode": "3058320002034",
+            "note": 5
         },
         "Volvic eau naturelle": {
-            "name": "Volvic eau naturelle",
-            "barcode": "3057640257773"
+            "libelle": "Volvic eau naturelle",
+            "brand": "volvic",
+            "barcode": "3057640257773",
+            "note": 5
         },
         "San Pelegrino": {
-            "name": "San Pelegrino",
-            "barcode": "8002270014901"
+            "libelle": "San Pelegrino",
+            "brand": "San Pelegrino",
+            "barcode": "8002270014901",
+            "note": 5
         },
         "xcvxcv": {
-            "marque": "ssss",
+            "libelle": "ssss",
+            "brand": "test",
+            "barcode": "8002270664901",
             "commentaire": "sdfsdfdfdffffff",
-            "note": 5
+            "note": 1
         }
-    },
-    {
-        "libelle": "ssss",
-        "marque": "qqqq",
-        "barcode": "ssss",
-        "commentaire": "fffffff",
-        "note": 2
     }
 ]

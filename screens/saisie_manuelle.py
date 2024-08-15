@@ -60,29 +60,20 @@ class SaisieManuelleScreen(MDScreen):
         print(data)
 
         try:
-            # Charger le contenu existant du fichier JSON
             with open("database.json", "r") as fichier:
                 donnees = json.load(fichier)
             if isinstance(donnees, dict):
-                # Si les données chargées sont un dictionnaire, transformer en liste
                 donnees = [donnees]
         except FileNotFoundError:
-            # Si le fichier n'existe pas, initialiser une liste vide
             donnees = []
 
-        # Ajouter le nouveau dictionnaire
         donnees.append(data)
 
         try:
-            # Enregistrer les données mises à jour dans le fichier JSON
             with open("database.json", "w") as fichier:
                 json.dump(donnees, fichier, indent=4)
             print("Données enregistrées avec succès.")
-
-            # Afficher un message de confirmation
             Snackbar(text="Données enregistrées avec succès!").open()
-
-            # Rediriger vers l'écran d'accueil après 2 secondes
             self.schedule_redirection()
 
         except Exception as e:

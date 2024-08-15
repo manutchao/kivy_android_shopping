@@ -4,6 +4,7 @@ from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
 from kivymd.uix.toolbar import MDTopAppBar
+from kivy.core.window import Window
 
 from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
 
@@ -12,6 +13,9 @@ from screens.accueil import AccueilScreen
 from screens.database import DatabaseScreen
 from screens.saisie_manuelle import SaisieManuelleScreen
 from screens.scanner import ScannerScreen
+from screens.content_item import ContentItemScreen
+
+# Window.size = (400, 800)  # Largeur, Hauteur
 
 
 class MyScreenManager(ScreenManager):
@@ -24,11 +28,11 @@ class MainApp(MDApp):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Brown"
         self.title = "MKivy_andoid__shopping"
-        # Window.size = (360, 640)
         Builder.load_file("kv/accueil.kv")
         Builder.load_file("kv/database.kv")
         Builder.load_file("kv/saisie_manuelle.kv")
         Builder.load_file("kv/scanner.kv")
+        Builder.load_file("kv/content_item.kv")
         return Builder.load_file("kv/main.kv")
 
 
