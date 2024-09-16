@@ -17,11 +17,10 @@ echo "Will create the package $PACKAGE.pkg"
 mkdir -p build/pkg-tmp
 xcrun CpMac -r "build/$FRAMEWORK.framework" build/pkg-tmp/
 
-./package build/pkg-tmp "pkg-support/$PACKAGE.info" -d  build -r "$PACKAGE_RESOURCES" 
+./package build/pkg-tmp "pkg-support/$PACKAGE.info" -d  build -r "$PACKAGE_RESOURCES"
 
 # remove temporary files
 rm -rf build/pkg-tmp
 
 # compress
 (cd build; tar -zcvf "$PACKAGE.pkg.tar.gz" "$PACKAGE.pkg")
-

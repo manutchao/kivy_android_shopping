@@ -4,62 +4,103 @@
     BoxLayout:
         orientation: 'vertical'
 
+        # Section principale avec tous les éléments du formulaire
+        ScrollView:
+            size_hint: (1, 1)
+            do_scroll_x: False
+            do_scroll_y: True
 
-        BoxLayout:
-            orientation: 'vertical'
-            # padding: dp(5)
-            # spacing: dp(5)
-            
-            MDTextField:
-                id: field_libelle
-                hint_text: "Saisir libelle"
-                mode: "rectangle"
-            MDTextField:
-
-                id: field_brand
-                hint_text: "Saisir marque"
-                mode: "rectangle"
-
-            MDTextField:
-                id: field_barcode
-                hint_text: "Saisir code barre"
-                mode: "rectangle"
-            
-            MDTextField:
-                id: field_comment
-                hint_text: "Saisir commentaire"
-                mode: "rectangle"
-                multiline: True
-            
-            MDLabel:
-                text: "Selectionner une note de 1 à 10"
-                halign: "center"
-            
-            MDSlider:
-                id: field_note
-                min: 1
-                max: 10
-                value: 5
-                step: 1
-            
             BoxLayout:
-                orientation: 'horizontal'
-                size_hint: None, None
-                size: self.minimum_size
-                spacing: dp(20)
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                orientation: 'vertical'
+                padding: dp(10)
+                spacing: dp(10)
+                size_hint_x: 1  # Assurez-vous que la BoxLayout prend toute la largeur
+                size_hint_y: None
+                height: self.minimum_height
 
+                MDTextField:
+                    id: field_libelle
+                    hint_text: "Saisir libelle"
+                    mode: "rectangle"
 
-                MDRectangleFlatButton:
-                    text: "Valider"
-                    theme_text_color: "Custom"
-                    text_color: "white"
-                    line_color: "green"
-                    on_release: root.validate_form()
+                MDTextField:
+                    id: field_brand
+                    hint_text: "Saisir marque"
+                    mode: "rectangle"
 
-                MDRectangleFlatButton:
-                    text: "Effacer"
-                    theme_text_color: "Custom"
-                    text_color: "white"
-                    line_color: "red"
-                    on_release: app.reset()
+                MDTextField:
+                    id: field_barcode
+                    hint_text: "Saisir code barre"
+                    mode: "rectangle"
+
+                MDTextField:
+                    id: field_comment
+                    hint_text: "Saisir commentaire"
+                    mode: "rectangle"
+                    multiline: True
+
+                MDLabel:
+                    text: "Selectionner une note de 1 à 10"
+                    halign: "center"
+
+                MDSlider:
+                    id: field_note
+                    min: 1
+                    max: 10
+                    value: 5
+                    step: 1
+
+                # Section pour l'image
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: dp(200)
+
+                    MDLabel:
+                        text: "Ajouter une photo"
+                        halign: "center"
+
+                    Image:
+                        id: image_preview
+                        source: ''
+                        size_hint: (1, 1)
+                        allow_stretch: True
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: dp(50)
+
+                        MDIconButton:
+                            icon: 'camera'
+                            theme_icon_color: "Custom"
+                            icon_color: "blue"
+                            on_release: root.capture_photo()
+
+                        MDIconButton:
+                            icon: 'image'
+                            theme_icon_color: "Custom"
+                            icon_color: "blue"
+                            on_release: root.choose_photo()
+
+                # Boutons d'action
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: dp(50)
+                    spacing: dp(20)
+                    pos_hint: {"center_x": 0.5}
+
+                    MDRectangleFlatButton:
+                        text: "Valider"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        line_color: "green"
+                        on_release: root.validate_form()
+
+                    MDRectangleFlatButton:
+                        text: "Effacer"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        line_color: "red"
+                        on_release: app.reset()

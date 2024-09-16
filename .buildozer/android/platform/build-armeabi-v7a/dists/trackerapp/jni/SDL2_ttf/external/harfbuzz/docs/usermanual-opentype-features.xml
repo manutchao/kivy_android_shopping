@@ -24,7 +24,7 @@
     you want to look under the hood and see what is happening on the
     inside. HarfBuzz provides facilities for doing that, too.
   </para>
-  
+
   <section id="shaping-buffer-output">
     <title>Shaping and buffer output</title>
     <para>
@@ -43,7 +43,7 @@
       Typography fonts, and so on). It also looks at the direction,
       script, and language properties of the segment to figure out
       which script-specific shaping model is needed (at least, in
-      shapers that support multiple options).      
+      shapers that support multiple options).
     </para>
     <para>
       If a font has a GDEF table, then that is used for
@@ -118,7 +118,7 @@
       pass the corresponding values off.
     </para>
   </section>
-  
+
   <section id="shaping-opentype-features">
     <title>OpenType features</title>
     <para>
@@ -240,7 +240,7 @@
       its shaping strategy based on examining the capabilities of the
       font file. OpenType font tables cause HarfBuzz to try the
       <literal>ot</literal> shaper, while AAT font tables cause HarfBuzz to try the
-      <literal>aat</literal> shaper. 
+      <literal>aat</literal> shaper.
     </para>
     <para>
       In the real world, however, a font might include some unusual
@@ -272,7 +272,7 @@
       the shapers that were built at compile time in your copy of HarfBuzz.
     </para>
   </section>
-  
+
   <section id="shaping-plans-and-caching">
     <title>Plans and caching</title>
     <para>
@@ -332,5 +332,5 @@
       <function>hb_shape_plan_get_user_data(shape_plan, key)</function>.
     </para>
   </section>
-  
+
 </chapter>

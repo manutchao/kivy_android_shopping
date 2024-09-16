@@ -93,4 +93,3 @@ On other systems which ship with an older udev (such as CentOS), you may need
 to set up a rule such as:
 
     SUBSYSTEM=="input", ENV{ID_CLASS}=="joystick", ENV{ID_INPUT_JOYSTICK}="1"
-

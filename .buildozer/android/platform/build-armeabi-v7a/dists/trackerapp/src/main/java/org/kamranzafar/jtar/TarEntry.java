@@ -1,18 +1,18 @@
 /**
- * Copyright 2012 Kamran Zafar 
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License. 
- * 
+ * Copyright 2012 Kamran Zafar
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package org.kamranzafar.jtar;
@@ -22,7 +22,7 @@ import java.util.Date;
 
 /**
  * @author Kamran Zafar
- * 
+ *
  */
 public class TarEntry {
 	protected File file;
@@ -46,12 +46,12 @@ public class TarEntry {
 
 	/**
 	 * Constructor to create an entry from an existing TarHeader object.
-	 * 
+	 *
 	 * This method is useful to add new entries programmatically (e.g. for
 	 * adding files or directories that do not exist in the file system).
-	 * 
+	 *
 	 * @param header
-	 * 
+	 *
 	 */
 	public TarEntry(TarHeader header) {
 		this.file = null;
@@ -146,7 +146,7 @@ public class TarEntry {
 
 	/**
 	 * Checks if the org.kamrazafar.jtar entry is a directory
-	 * 
+	 *
 	 * @return
 	 */
 	public boolean isDirectory() {
@@ -166,7 +166,7 @@ public class TarEntry {
 
 	/**
 	 * Extract header from File
-	 * 
+	 *
 	 * @param entryName
 	 */
 	public void extractTarHeader(String entryName) {
@@ -175,7 +175,7 @@ public class TarEntry {
 
 	/**
 	 * Calculate checksum
-	 * 
+	 *
 	 * @param buf
 	 * @return
 	 */
@@ -191,7 +191,7 @@ public class TarEntry {
 
 	/**
 	 * Writes the header to the byte buffer
-	 * 
+	 *
 	 * @param outbuf
 	 */
 	public void writeEntryHeader(byte[] outbuf) {
@@ -231,7 +231,7 @@ public class TarEntry {
 
 	/**
 	 * Parses the tar header to the byte buffer
-	 * 
+	 *
 	 * @param header
 	 * @param bh
 	 */

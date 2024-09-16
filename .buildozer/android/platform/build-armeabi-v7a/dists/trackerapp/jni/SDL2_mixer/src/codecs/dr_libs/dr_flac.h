@@ -179,7 +179,7 @@ reports metadata to the application through the use of a callback, and every met
 
 The main opening APIs (`drflac_open()`, etc.) will fail if the header is not present. The presents a problem in certain scenarios such as broadcast style
 streams or internet radio where the header may not be present because the user has started playback mid-stream. To handle this, use the relaxed APIs:
-    
+
     `drflac_open_relaxed()`
     `drflac_open_with_metadata_relaxed()`
 

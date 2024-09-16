@@ -176,5 +176,3 @@ Notes
 * When launching apps remotely (via SSH), SDL can prevent local keystrokes from
   leaking into the console only if it has root privileges. Launching apps locally
   does not suffer from this issue.
-
-

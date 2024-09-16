@@ -6,7 +6,7 @@
 ]>
 <chapter id="install-harfbuzz">
   <title>Installing HarfBuzz</title>
-  
+
   <section id="download">
     <title id="download.title">Downloading HarfBuzz</title>
     <para>
@@ -32,10 +32,10 @@
       compatibility-breaking way in any release. However, other,
       peripheral headers are more likely to go through minor
       modifications. We will do our best to never change APIs in an
-      incompatible way. We will <emphasis>never</emphasis> break the ABI. 
+      incompatible way. We will <emphasis>never</emphasis> break the ABI.
     </para>
   </section>
-  
+
   <section id="building">
     <title>Building HarfBuzz</title>
 
@@ -54,7 +54,7 @@
       <programlisting><command>sudo yum install</command> <package>gcc gcc-c++ freetype-devel glib2-devel cairo-devel</package></programlisting>
 
     </para>
-    
+
     <para>
       <emphasis>(2)</emphasis> The next step depends on whether you
       are building from the source in a downloaded release tarball or
@@ -79,7 +79,7 @@
     <para>
       <emphasis>(2)(b)</emphasis> If you are building from the source in the HarfBuzz git
       repository, rather than installing from a downloaded tarball
-      release, then you must install two more auxiliary tools before you 
+      release, then you must install two more auxiliary tools before you
       can build for the first time: <package>pkg-config</package>.
     </para>
     <para>
@@ -87,7 +87,7 @@
       <programlisting><command>sudo apt-get install</command> <package>meson pkg-config gtk-doc-tools</package></programlisting>
       On Fedora, RHEL, CentOS, run:
       <programlisting><command>sudo yum install</command> <package>meson pkgconfig gtk-doc</package></programlisting>
-      
+
     </para>
     <para>
       With <package>pkg-config</package> installed, you can now run
@@ -96,7 +96,7 @@
     </para>
     </section>
 
-    
+
     <section id="building.windows">
       <title>Building on Windows</title>
 
@@ -109,7 +109,7 @@
       </para>
     </section>
 
-    
+
     <section id="building.macos">
       <title>Building on macOS</title>
 
@@ -171,8 +171,8 @@
 	utility programs including <command>hb-view</command> and
 	<command>hb-shape</command> under the <filename>util/</filename>
 	directory.
-      </para>      
-	
+      </para>
+
     </section>
 
     <section id="configuration">
@@ -185,7 +185,7 @@
       </para>
 
       <variablelist>
-	<?dbfo list-presentation="blocks"?>	
+	<?dbfo list-presentation="blocks"?>
 	<varlistentry>
 	  <term><command>-Dglib=enabled</command></term>
 	  <listitem>
@@ -201,29 +201,29 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dgobject=enabled</command></term>
 	  <listitem>
 	    <para>
 	      Use <ulink url="https://developer.gnome.org/gobject/stable/">GObject</ulink>. <emphasis>(Default = no)</emphasis>
-	    </para>	   
+	    </para>
 	    <para>
 	      This option enables or disables usage of the GObject
 	      library. The default setting is to check for the
 	      presence of GObject and, if it is found, build with
 	      GObject support. GObject is native to GNU/Linux systems but is
 	      available on other operating system as well.
-	    </para> 
+	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dcairo=enabled</command></term>
 	  <listitem>
 	    <para>
 	      Use <ulink url="https://cairographics.org/">Cairo</ulink>. <emphasis>(Default = auto)</emphasis>
-	    </para>	   
+	    </para>
 	    <para>
 	      This option enables or disables usage of the Cairo
 	      graphics-rendering library. The default setting is to
@@ -236,7 +236,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dicu=enabled</command></term>
 	  <listitem>
@@ -254,7 +254,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dgraphite=enabled</command></term>
 	  <listitem>
@@ -264,11 +264,11 @@
 	    <para>
 	      This option enables or disables usage of the Graphite2
 	      library, which provides support for the Graphite shaping
-	      model. 
+	      model.
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dfreetype=enabled</command></term>
 	  <listitem>
@@ -283,7 +283,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dgdi=enabled</command></term>
 	  <listitem>
@@ -301,7 +301,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Ddirectwrite=enabled</command></term>
 	  <listitem>
@@ -317,7 +317,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term><command>-Dcoretext=enabled</command></term>
 	  <listitem>
@@ -329,7 +329,7 @@
 	      library. CoreText is available on macOS and iOS systems.
 	    </para>
 	  </listitem>
-	</varlistentry>	
+	</varlistentry>
 
 	<varlistentry>
 	  <term><command>-Ddocs=enabled</command></term>
@@ -344,6 +344,6 @@
 	</varlistentry>
       </variablelist>
     </section>
-    
+
   </section>
 </chapter>

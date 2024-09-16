@@ -93,4 +93,3 @@ echo "All done."
 echo "Run 'git diff' and make sure this looks correct, before 'git commit'."
 
 exit 0
-

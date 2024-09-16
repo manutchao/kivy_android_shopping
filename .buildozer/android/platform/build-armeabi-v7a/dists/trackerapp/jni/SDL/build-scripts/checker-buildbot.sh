@@ -59,4 +59,3 @@ rm -rf checker-buildbot
 echo "Done. Final output is in '$FINALDIR' ..."
 
 # end of checker-buildbot.sh ...
-

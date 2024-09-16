@@ -45,7 +45,7 @@ main (int argc, char **argv)
   hb_font_t *font = hb_font_create (face);
   hb_blob_destroy (blob);
   blob = nullptr;
-  
+
 
   const unsigned int num_glyphs = hb_face_get_glyph_count (face);
   int	result = 1;

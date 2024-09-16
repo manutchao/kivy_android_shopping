@@ -21,4 +21,3 @@ include $(TOP_DIR)/builds/compiler/win-lcc.mk
 include $(TOP_DIR)/builds/link_dos.mk
 
 # EOF
-

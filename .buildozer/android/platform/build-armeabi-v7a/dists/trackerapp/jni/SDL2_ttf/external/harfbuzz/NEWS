@@ -68,7 +68,7 @@ Tuesday, March 16, 2021
   Previously these were shaped using the generalized Arabic shaper. (David Corbett)
 - Fix regression in shaping of U+0B55 ORIYA SIGN OVERLINE. (David Corbett)
 - Update language tags. (David Corbett)
-- Variations: reduce error: do not round each interpolated delta. (Just van Rossum) 
+- Variations: reduce error: do not round each interpolated delta. (Just van Rossum)
 - Documentation improvements. (Khaled Hosny, Nathan Willis)
 - Subsetter improvements: subsets most, if not all, lookup types now. (Garret Rieger, Qunxin Liu)
 - Fuzzer-found fixes and other improvements when memory failures happen. (Behdad)
@@ -2517,5 +2517,3 @@ Summary of API changes follows.
     hb_version()
     hb_version_string()
     hb_version_check()
-
-

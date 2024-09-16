@@ -18,10 +18,11 @@ class AddScreen(Screen):
         comment = app.root.get_screen("detail_screen").ids.tf_comment.text
         rating = app.root.get_screen("detail_screen").ids.slider.value
 
-        # Logique pour soumettre les données (vous pouvez ajouter votre propre logique ici)
-        print(
-            f"Libellé: {libelle}, Marque: {brand}, Code-barres: {barcode}, Commentaire: {comment}, Note: {rating}"
-        )
+        print(f"Libellé: {libelle}")
+        print(f"Marque: {brand}")
+        print(f"barcode: {barcode}")
+        print(f"Comment: {comment}")
+        print(f"Note: {rating}")
 
     def reset(self, app):
         # Réinitialiser les champs du formulaire

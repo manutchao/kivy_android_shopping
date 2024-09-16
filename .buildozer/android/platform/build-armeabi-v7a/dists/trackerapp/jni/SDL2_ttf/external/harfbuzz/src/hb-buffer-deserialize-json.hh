@@ -203,27 +203,27 @@ const char **end_ptr,
 hb_font_t *font)
 {
 	const char *p = buf, *pe = buf + buf_len;
-	
+
 	/* Ensure we have positions. */
 	(void) hb_buffer_get_glyph_positions (buffer, nullptr);
-	
+
 	while (p < pe && ISSPACE (*p))
 	p++;
 	if (p < pe && *p == (buffer->len ? ',' : '['))
 		{
 		*end_ptr = ++p;
 	}
-	
+
 	const char *tok = nullptr;
 	int cs;
 	hb_glyph_info_t info = {0};
 	hb_glyph_position_t pos = {0};
-	
+
 #line 223 "hb-buffer-deserialize-json.hh"
 	{
 		cs = (int)deserialize_json_start;
 	}
-	
+
 #line 228 "hb-buffer-deserialize-json.hh"
 	{
 		unsigned int _trans = 0;
@@ -235,372 +235,372 @@ hb_font_t *font)
 			goto _out;
 		_keys = ( _deserialize_json_trans_keys + ((cs<<1)));
 		_inds = ( _deserialize_json_indicies + (_deserialize_json_index_offsets[cs]));
-		
+
 		if ( ( (*( p))) <= 125 && ( (*( p))) >= 9 ) {
 			_ic = (int)_deserialize_json_char_class[(int)( (*( p))) - 9];
 			if ( _ic <= (int)(*( _keys+1)) && _ic >= (int)(*( _keys)) )
-				_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) )); 
+				_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) ));
 			else
 				_trans = (unsigned int)_deserialize_json_index_defaults[cs];
 		}
 		else {
 			_trans = (unsigned int)_deserialize_json_index_defaults[cs];
 		}
-		
+
 		cs = (int)_deserialize_json_cond_targs[_trans];
-		
+
 		if ( _deserialize_json_cond_actions[_trans] != 0 ) {
-			
+
 			switch ( _deserialize_json_cond_actions[_trans] ) {
 				case 1:  {
 					{
 #line 38 "hb-buffer-deserialize-json.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 264 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 5:  {
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 280 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 2:  {
 					{
 #line 51 "hb-buffer-deserialize-json.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 292 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 15:  {
 					{
 #line 55 "hb-buffer-deserialize-json.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 302 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 21:  {
 					{
 #line 56 "hb-buffer-deserialize-json.rl"
 						if (unlikely (!buffer->ensure_unicode ())) return false; }
-					
+
 #line 312 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 16:  {
 					{
 #line 58 "hb-buffer-deserialize-json.rl"
-						
+
 						/* TODO Unescape \" and \\ if found. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 328 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 18:  {
 					{
 #line 66 "hb-buffer-deserialize-json.rl"
 						if (!parse_uint (tok, p, &info.codepoint)) return false; }
-					
+
 #line 338 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 8:  {
 					{
 #line 67 "hb-buffer-deserialize-json.rl"
 						if (!parse_uint (tok, p, &info.cluster )) return false; }
-					
+
 #line 348 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 10:  {
 					{
 #line 68 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.x_offset )) return false; }
-					
+
 #line 358 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 12:  {
 					{
 #line 69 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-					
+
 #line 368 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 3:  {
 					{
 #line 70 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-					
+
 #line 378 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 6:  {
 					{
 #line 71 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.y_advance)) return false; }
-					
+
 #line 388 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 14:  {
 					{
 #line 51 "hb-buffer-deserialize-json.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 400 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 55 "hb-buffer-deserialize-json.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 406 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 20:  {
 					{
 #line 51 "hb-buffer-deserialize-json.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 418 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 56 "hb-buffer-deserialize-json.rl"
 						if (unlikely (!buffer->ensure_unicode ())) return false; }
-					
+
 #line 424 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 17:  {
 					{
 #line 58 "hb-buffer-deserialize-json.rl"
-						
+
 						/* TODO Unescape \" and \\ if found. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 440 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 452 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 19:  {
 					{
 #line 66 "hb-buffer-deserialize-json.rl"
 						if (!parse_uint (tok, p, &info.codepoint)) return false; }
-					
+
 #line 462 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 474 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 9:  {
 					{
 #line 67 "hb-buffer-deserialize-json.rl"
 						if (!parse_uint (tok, p, &info.cluster )) return false; }
-					
+
 #line 484 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 496 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 11:  {
 					{
 #line 68 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.x_offset )) return false; }
-					
+
 #line 506 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 518 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 13:  {
 					{
 #line 69 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-					
+
 #line 528 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 540 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 4:  {
 					{
 #line 70 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-					
+
 #line 550 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 562 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 7:  {
 					{
 #line 71 "hb-buffer-deserialize-json.rl"
 						if (!parse_int  (tok, p, &pos.y_advance)) return false; }
-					
+
 #line 572 "hb-buffer-deserialize-json.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-json.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 584 "hb-buffer-deserialize-json.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 		}
-		
+
 		if ( cs != 0 ) {
 			p += 1;
 			goto _resume;
 		}
 		_out: {}
 	}
-	
+
 #line 136 "hb-buffer-deserialize-json.rl"
-	
-	
+
+
 	*end_ptr = p;
-	
+
 	return p == pe && *(p-1) != ']';
 }
 

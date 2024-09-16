@@ -41,4 +41,3 @@ extern Sint64 _Mix_ParseTime(char *time, long samplerate_hz);
 extern SDL_bool _Mix_IsLoopTag(const char *tag);
 
 #endif /* UTILS_H_ */
-

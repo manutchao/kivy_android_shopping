@@ -40,7 +40,7 @@
  *
  * The types and functions listed here are solely a linkage between
  * HarfBuzz's public data types and the GTypes used by the GObject framework.
- * HarfBuzz uses GObject introspection to generate its Python bindings 
+ * HarfBuzz uses GObject introspection to generate its Python bindings
  * (and potentially other language bindings); client programs should never need
  * to access the GObject-integration mechanics.
  *

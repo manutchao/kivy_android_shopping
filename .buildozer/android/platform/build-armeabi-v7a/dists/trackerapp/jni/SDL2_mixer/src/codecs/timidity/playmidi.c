@@ -104,7 +104,7 @@ static void select_sample(MidiSong *song, int v, Instrument *ip)
 
 static void recompute_freq(MidiSong *song, int v)
 {
-  int 
+  int
     sign=(song->voice[v].sample_increment < 0), /* for bidirectional loops */
     pb=song->channel[song->voice[v].channel].pitchbend;
   double a;
@@ -165,7 +165,7 @@ static void recompute_amp(MidiSong *song, int v)
   /* TODO: use fscale */
 
   tempamp= (song->voice[v].velocity *
-	    song->channel[song->voice[v].channel].volume * 
+	    song->channel[song->voice[v].channel].volume *
 	    song->channel[song->voice[v].channel].expression); /* 21 bits */
 
   if (!(song->encoding & PE_MONO))
@@ -317,7 +317,7 @@ static void note_on(MidiSong *song)
     {
       if (song->voice[i].status == VOICE_FREE)
 	lowest=i; /* Can't get a lower volume than silence */
-      else if (song->voice[i].channel==e->channel && 
+      else if (song->voice[i].channel==e->channel &&
 	       (song->voice[i].note==e->a || song->channel[song->voice[i].channel].mono))
 	kill_note(song, i);
     }
@@ -413,7 +413,7 @@ static void all_notes_off(MidiSong *song)
     if (song->voice[i].status == VOICE_ON &&
 	song->voice[i].channel == c)
       {
-	if (song->channel[c].sustain) 
+	if (song->channel[c].sustain)
 	  song->voice[i].status = VOICE_SUSTAINED;
 	else
 	  finish_note(song, i);
@@ -427,7 +427,7 @@ static void all_sounds_off(MidiSong *song)
   int c = song->current_event->channel;
 
   while (i--)
-    if (song->voice[i].channel == c && 
+    if (song->voice[i].channel == c &&
 	song->voice[i].status != VOICE_FREE &&
 	song->voice[i].status != VOICE_DIE)
       {
@@ -577,7 +577,7 @@ static void skip_to(MidiSong *song, Sint32 until_time)
 static void do_compute_data(MidiSong *song, Sint32 count)
 {
   int i;
-  SDL_memset(song->buffer_pointer, 0, 
+  SDL_memset(song->buffer_pointer, 0,
 	 (song->encoding & PE_MONO) ? (count * 4) : (count * 8));
   for (i = 0; i < song->voices; i++)
     {

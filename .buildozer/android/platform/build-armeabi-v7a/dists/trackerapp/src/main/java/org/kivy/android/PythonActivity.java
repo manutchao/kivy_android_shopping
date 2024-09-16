@@ -345,7 +345,7 @@ public class PythonActivity extends SDLActivity {
     /** Whether main routine/actual app has started yet **/
     protected boolean mAppConfirmedActive = false;
     /** Timer for delayed loading screen removal. **/
-    protected Timer loadingScreenRemovalTimer = null; 
+    protected Timer loadingScreenRemovalTimer = null;
 
     // Overridden since it's called often, to check whether to remove the
     // loading screen:
@@ -355,7 +355,7 @@ public class PythonActivity extends SDLActivity {
         considerLoadingScreenRemoval();
         return result;
     }
-   
+
     /** Confirm that the app's main routine has been launched.
      **/
     @Override
@@ -605,7 +605,7 @@ public class PythonActivity extends SDLActivity {
                 Activity.class.getMethod("checkSelfPermission", String.class);
             Object resultObj = methodCheckPermission.invoke(this, permission);
             int result = Integer.parseInt(resultObj.toString());
-            if (result == PackageManager.PERMISSION_GRANTED) 
+            if (result == PackageManager.PERMISSION_GRANTED)
                 return true;
         } catch (IllegalAccessException | NoSuchMethodException |
                  InvocationTargetException e) {

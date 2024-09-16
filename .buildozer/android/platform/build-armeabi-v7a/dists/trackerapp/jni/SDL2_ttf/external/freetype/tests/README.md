@@ -19,4 +19,3 @@ them, as in:
 ### Run the test programs
 
   meson test -C out
-

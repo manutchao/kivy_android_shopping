@@ -213,7 +213,7 @@ SDL_Surface *IMG_LoadWEBP_RW(SDL_RWops *src)
     } else {
        format = SDL_PIXELFORMAT_RGB24;
     }
-    
+
     surface = SDL_CreateRGBSurfaceWithFormat(0, features.width, features.height, 0, format);
     if (surface == NULL) {
         error = "Failed to allocate SDL_Surface";
@@ -308,7 +308,7 @@ IMG_Animation *IMG_LoadWEBPAnimation_RW(SDL_RWops *src)
     } else {
        format = SDL_PIXELFORMAT_RGB24;
     }
-    
+
     wd.size = raw_data_size;
     wd.bytes = raw_data;
     dmuxer = lib.WebPDemuxInternal(&wd, 0, NULL, WEBP_DEMUX_ABI_VERSION);

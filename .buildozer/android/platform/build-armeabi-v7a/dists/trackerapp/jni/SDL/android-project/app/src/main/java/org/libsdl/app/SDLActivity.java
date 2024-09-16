@@ -311,7 +311,7 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         mNextNativeState = NativeState.INIT;
         mCurrentNativeState = NativeState.INIT;
     }
-    
+
     protected SDLSurface createSDLSurface(Context context) {
         return new SDLSurface(context);
     }
@@ -2114,4 +2114,3 @@ class SDLClipboardHandler implements
         SDLActivity.onNativeClipboardChanged();
     }
 }
-

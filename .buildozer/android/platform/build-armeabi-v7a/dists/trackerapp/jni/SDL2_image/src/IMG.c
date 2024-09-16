@@ -439,4 +439,3 @@ void IMG_FreeAnimation(IMG_Animation *anim)
         SDL_free(anim);
     }
 }
-

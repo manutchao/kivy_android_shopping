@@ -67,4 +67,3 @@ void Cocoa_Metal_GetDrawableSize(_THIS, SDL_Window * window, int * w, int * h);
 #endif /* SDL_cocoametalview_h_ */
 
 /* vi: set ts=4 sw=4 expandtab: */
-

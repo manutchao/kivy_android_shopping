@@ -95,7 +95,7 @@ typedef enum
  * -X ... +X : left ... right
  * -Y ... +Y : bottom ... top
  * -Z ... +Z : farther ... closer
- * 
+ *
  * The axis data is not changed when the phone is rotated.
  *
  * \sa SDL_GetDisplayOrientation()
@@ -120,7 +120,7 @@ typedef enum
  * -X ... +X : left ... right
  * -Y ... +Y : bottom ... top
  * -Z ... +Z : farther ... closer
- * 
+ *
  * The axis data is not changed when the phone or controller is rotated.
  *
  * \sa SDL_GetDisplayOrientation()

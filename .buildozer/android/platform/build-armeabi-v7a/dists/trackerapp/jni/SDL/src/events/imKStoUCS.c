@@ -346,4 +346,3 @@ SDL_KeySymToUcs4(Uint32 keysym)
 }
 
 #endif /* SDL_VIDEO_DRIVER_X11 */
-

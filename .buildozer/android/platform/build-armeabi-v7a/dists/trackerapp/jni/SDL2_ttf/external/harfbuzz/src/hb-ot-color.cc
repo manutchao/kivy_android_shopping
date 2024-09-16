@@ -90,15 +90,15 @@ hb_ot_color_palette_get_count (hb_face_t *face)
 /**
  * hb_ot_color_palette_get_name_id:
  * @face: #hb_face_t to work upon
- * @palette_index: The index of the color palette 
+ * @palette_index: The index of the color palette
  *
  * Fetches the `name` table Name ID that provides display names for
- * a `CPAL` color palette. 
+ * a `CPAL` color palette.
  *
  * Palette display names can be generic (e.g., "Default") or provide
  * specific, themed names (e.g., "Spring", "Summer", "Fall", and "Winter").
  *
- * Return value: the Named ID found for the palette. 
+ * Return value: the Named ID found for the palette.
  * If the requested palette has no name the result is #HB_OT_NAME_ID_INVALID.
  *
  * Since: 2.1.0
@@ -116,7 +116,7 @@ hb_ot_color_palette_get_name_id (hb_face_t *face,
  * @color_index: The index of the color
  *
  * Fetches the `name` table Name ID that provides display names for
- * the specificed color in a face's `CPAL` color palette. 
+ * the specificed color in a face's `CPAL` color palette.
  *
  * Display names can be generic (e.g., "Background") or specific
  * (e.g., "Eye color").

@@ -12,7 +12,7 @@
     lower-level APIs for common data types that may be of interest to
     client programs.
   </para>
-  
+
   <section id="utilities-command-line-tools">
     <title>Command-line tools</title>
     <para>
@@ -22,7 +22,7 @@
       HarfBuzz's functionality, debug font binaries, or explore the
       various shaping models and features from a terminal.
     </para>
-    
+
     <section id="utilities-command-line-hbshape">
       <title>hb-shape</title>
       <para>
@@ -73,9 +73,9 @@
       </para>
       <programlisting>
 	<command>hb-shape</command> <parameter>--help</parameter>
-      </programlisting>  
+      </programlisting>
     </section>
-    
+
     <section id="utilities-command-line-hbview">
       <title>hb-view</title>
       <para>
@@ -110,7 +110,7 @@
 	You can also set the foreground and background colors used for
 	the output, independently control the width of all four
 	margins, alter the line spacing, and annotate the output image
-	with 
+	with
       </para>
       <para>
 	In general, <command>hb-view</command> is a quick way to
@@ -120,7 +120,7 @@
 	why something does not appear as expected.
       </para>
     </section>
-    
+
     <section id="utilities-command-line-hbsubset">
       <title>hb-subset</title>
       <para>
@@ -153,9 +153,9 @@
 	subsetted font and to specify a list of variation-axis settings.
       </para>
     </section>
-    
+
   </section>
-  
+
   <section id="utilities-common-types-apis">
     <title>Common data types and APIs</title>
     <para>
@@ -176,7 +176,7 @@
       All set elements are integers (specifically,
       <type>hb_codepoint_t</type> 32-bit unsigned ints), and there are
       functions for fetching the minimum and maximum element from a
-      set. The set API also includes some functions that might not 
+      set. The set API also includes some functions that might not
       be part of a generic set facility, such as the ability to add a
       contiguous range of integer elements to a set in bulk, and the
       ability to fetch the next-smallest or next-largest element.
@@ -207,7 +207,7 @@
       <type>hb_tag_t</type> for a variety of OpenType tag identifiers (for
       scripts, languages, font features, table names, variation-axis
       names, and more), and provides functions for converting strings
-      to tags and vice-versa. 
+      to tags and vice-versa.
     </para>
     <para>
       Finally, HarfBuzz also includes data type for Booleans, bit

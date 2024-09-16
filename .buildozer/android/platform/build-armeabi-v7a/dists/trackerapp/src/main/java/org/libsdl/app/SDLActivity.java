@@ -313,7 +313,7 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
         mNextNativeState = NativeState.INIT;
         mCurrentNativeState = NativeState.INIT;
     }
-    
+
     protected SDLSurface createSDLSurface(Context context) {
         return new SDLSurface(context);
     }
@@ -1404,14 +1404,14 @@ public class SDLActivity extends Activity implements View.OnSystemUiVisibilityCh
     public static void triggerAppConfirmedActive() {
         mSingleton.appConfirmedActive();
     }
-  
+
     /**
      * Trick needed for loading screen, overridden by PythonActivity
      * to keep loading screen active
      */
     public void appConfirmedActive() {
     }
- 
+
 
     // Input
 
@@ -2140,4 +2140,3 @@ class SDLClipboardHandler implements
         SDLActivity.onNativeClipboardChanged();
     }
 }
-

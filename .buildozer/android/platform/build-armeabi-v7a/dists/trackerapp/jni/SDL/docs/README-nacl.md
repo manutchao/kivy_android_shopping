@@ -100,4 +100,3 @@ TODO - Known Issues
 ================================================================================
 * Testing of all systems with a real application (something other than SDL's tests)
 * Key events don't seem to work properly
-

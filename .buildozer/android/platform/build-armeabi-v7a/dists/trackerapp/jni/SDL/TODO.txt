@@ -7,4 +7,3 @@ Future work roadmap:
 	4974 - Windows file code needs to convert UTF-8 to Unicode, but we don't need to tap dance for Windows 95/98
 	4865 - See if this is still needed (mouse coordinate clamping)
 	4866 - See if this is still needed (blocking window repositioning)
-

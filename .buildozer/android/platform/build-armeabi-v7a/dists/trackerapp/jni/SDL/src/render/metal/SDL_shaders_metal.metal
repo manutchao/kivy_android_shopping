@@ -117,4 +117,3 @@ fragment float4 SDL_NV21_fragment(CopyVertexOutput vert [[stage_in]],
 
     return vert.color * float4(dot(yuv, decode.Rcoeff), dot(yuv, decode.Gcoeff), dot(yuv, decode.Bcoeff), 1.0);
 }
-

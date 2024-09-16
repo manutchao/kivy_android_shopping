@@ -1,7 +1,7 @@
 <DetailScreen>:
     BoxLayout:
         orientation: 'vertical'
-        
+
         MDTopAppBar:
             title: "Detail"
             left_action_items: [["arrow-left", lambda x: app.show_main_screen()]]
@@ -12,7 +12,7 @@
             orientation: 'vertical'
             padding: dp(20)
             spacing: dp(20)
-            
+
             MDTextField:
                 id: text_field1
                 hint_text: "Saisir libelle"
@@ -22,24 +22,24 @@
                 id: text_field2
                 hint_text: "Saisir code barre"
                 mode: "rectangle"
-            
+
             MDTextField:
                 id: comment_field
                 hint_text: "Saisir commentaire"
                 mode: "rectangle"
                 multiline: True
-            
+
             MDLabel:
                 text: "Selectionner une note de 1 à 10"
                 halign: "center"
-            
+
             MDSlider:
                 id: slider
                 min: 1
                 max: 10
                 value: 5
                 step: 1
-            
+
             BoxLayout:
                 orientation: 'horizontal'
                 size_hint: None, None

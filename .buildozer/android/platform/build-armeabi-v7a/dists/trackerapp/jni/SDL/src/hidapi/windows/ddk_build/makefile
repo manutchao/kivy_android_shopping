@@ -46,4 +46,3 @@ COMMONMKFILE = hidapi.mk
 !ENDIF
 
 !ENDIF
-

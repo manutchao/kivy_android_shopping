@@ -189,4 +189,3 @@ SDL_Surface *IMG_LoadSVG_RW(SDL_RWops *src)
 {
     return IMG_LoadSizedSVG_RW(src, 0, 0);
 }
-

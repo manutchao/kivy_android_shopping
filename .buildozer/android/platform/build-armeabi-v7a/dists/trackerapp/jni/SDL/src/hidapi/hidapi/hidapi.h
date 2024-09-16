@@ -418,4 +418,3 @@ namespace NAMESPACE {
 #endif
 
 #endif
-

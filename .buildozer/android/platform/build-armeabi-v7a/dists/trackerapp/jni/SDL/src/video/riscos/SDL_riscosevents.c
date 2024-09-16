@@ -152,7 +152,7 @@ int RISCOS_InitEvents(_THIS)
     SDL_ToggleModState(KMOD_NUM, (status & (1 << 2)) ? SDL_FALSE : SDL_TRUE);
     SDL_ToggleModState(KMOD_CAPS, (status & (1 << 4)) ? SDL_FALSE : SDL_TRUE);
     SDL_ToggleModState(KMOD_SCROLL, (status & (1 << 1)) ? SDL_TRUE : SDL_FALSE);
- 
+
     _kernel_swi(OS_Mouse, &regs, &regs);
     driverdata->last_mouse_buttons = regs.r[2];
 

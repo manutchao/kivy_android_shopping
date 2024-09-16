@@ -2,13 +2,13 @@
 <project name="CustomRules">
     <target name="-pre-build">
         <copy todir="tmp-src">
-            
+
             <fileset dir="src/main/java">
                 <exclude name="org/kivy/android/ProjectAdapter.java" />
                 <exclude name="org/kivy/android/ProjectChooser.java" />
             </fileset>
-            
-            
+
+
         </copy>
     </target>
     <target name="-post-build">

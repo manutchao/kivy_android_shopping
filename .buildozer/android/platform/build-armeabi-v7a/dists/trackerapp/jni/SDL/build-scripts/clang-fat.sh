@@ -102,4 +102,3 @@ fi
 if test x"$output" != x; then
     lipo -create -o $output arm64/$output x64/$output
 fi
-

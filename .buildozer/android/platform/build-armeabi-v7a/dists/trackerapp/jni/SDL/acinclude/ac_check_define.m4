@@ -11,4 +11,3 @@ YES_IS_DEFINED
     AC_DEFINE([HAVE_$1],[],[Added by AC_CHECK_DEFINE])
   fi
 ])dnl
-

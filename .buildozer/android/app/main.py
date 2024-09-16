@@ -1,19 +1,12 @@
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
-from kivy.core.window import Window
-from kivy.uix.boxlayout import BoxLayout
 from kivymd.app import MDApp
-from kivymd.uix.toolbar import MDTopAppBar
-from kivy.core.window import Window
-
-from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
-
 
 from screens.accueil import AccueilScreen
+from screens.content_item import ContentItemScreen
 from screens.database import DatabaseScreen
 from screens.saisie_manuelle import SaisieManuelleScreen
 from screens.scanner import ScannerScreen
-from screens.content_item import ContentItemScreen
 
 # Window.size = (400, 800)  # Largeur, Hauteur
 
@@ -23,7 +16,6 @@ class MyScreenManager(ScreenManager):
 
 
 class MainApp(MDApp):
-
     def build(self):
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Brown"
@@ -93,7 +85,7 @@ if __name__ == "__main__":
 #             )
 #             logger.info("Article found")
 #         else:
-#             self.dialog = MDDialog(text=f"L'article scanné {barcode} n'existe pas")
+#             self.dialog = MDDialog(text=f"Scanned object {barcode} does not exists")
 #             logger.info("Article not found")
 #         self.dialog.open()
 

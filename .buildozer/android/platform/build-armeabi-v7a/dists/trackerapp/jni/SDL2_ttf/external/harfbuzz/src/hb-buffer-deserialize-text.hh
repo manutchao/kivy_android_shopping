@@ -188,23 +188,23 @@ const char **end_ptr,
 hb_font_t *font)
 {
 	const char *p = buf, *pe = buf + buf_len;
-	
+
 	/* Ensure we have positions. */
 	(void) hb_buffer_get_glyph_positions (buffer, nullptr);
-	
+
 	while (p < pe && ISSPACE (*p))
 	p++;
-	
+
 	const char *eof = pe, *tok = nullptr;
 	int cs;
 	hb_glyph_info_t info = {0};
 	hb_glyph_position_t pos = {0};
-	
+
 #line 204 "hb-buffer-deserialize-text.hh"
 	{
 		cs = (int)deserialize_text_start;
 	}
-	
+
 #line 209 "hb-buffer-deserialize-text.hh"
 	{
 		unsigned int _trans = 0;
@@ -222,524 +222,524 @@ hb_font_t *font)
 		else {
 			_keys = ( _deserialize_text_trans_keys + ((cs<<1)));
 			_inds = ( _deserialize_text_indicies + (_deserialize_text_index_offsets[cs]));
-			
+
 			if ( ( (*( p))) <= 124 && ( (*( p))) >= 9 ) {
 				_ic = (int)_deserialize_text_char_class[(int)( (*( p))) - 9];
 				if ( _ic <= (int)(*( _keys+1)) && _ic >= (int)(*( _keys)) )
-					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) )); 
+					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) ));
 				else
 					_trans = (unsigned int)_deserialize_text_index_defaults[cs];
 			}
 			else {
 				_trans = (unsigned int)_deserialize_text_index_defaults[cs];
 			}
-			
+
 		}
 		cs = (int)_deserialize_text_cond_targs[_trans];
-		
+
 		if ( _deserialize_text_cond_actions[_trans] != 0 ) {
-			
+
 			switch ( _deserialize_text_cond_actions[_trans] ) {
 				case 1:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 252 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 3:  {
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 264 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 5:  {
 					{
 #line 55 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 274 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 8:  {
 					{
 #line 56 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_unicode ())) return false; }
-					
+
 #line 284 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 18:  {
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 300 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 9:  {
 					{
 #line 66 "hb-buffer-deserialize-text.rl"
 						if (!parse_hex (tok, p, &info.codepoint )) return false; }
-					
+
 #line 310 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 21:  {
 					{
 #line 68 "hb-buffer-deserialize-text.rl"
 						if (!parse_uint (tok, p, &info.cluster )) return false; }
-					
+
 #line 320 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 6:  {
 					{
 #line 69 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.x_offset )) return false; }
-					
+
 #line 330 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 23:  {
 					{
 #line 70 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-					
+
 #line 340 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 20:  {
 					{
 #line 71 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-					
+
 #line 350 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 15:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 363 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 371 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 4:  {
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 383 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 55 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 389 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 2:  {
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 401 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 56 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_unicode ())) return false; }
-					
+
 #line 407 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 16:  {
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 423 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 435 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 7:  {
 					{
 #line 66 "hb-buffer-deserialize-text.rl"
 						if (!parse_hex (tok, p, &info.codepoint )) return false; }
-					
+
 #line 445 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 457 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 10:  {
 					{
 #line 68 "hb-buffer-deserialize-text.rl"
 						if (!parse_uint (tok, p, &info.cluster )) return false; }
-					
+
 #line 467 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 479 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 22:  {
 					{
 #line 70 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.y_offset )) return false; }
-					
+
 #line 489 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 501 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 19:  {
 					{
 #line 71 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.x_advance)) return false; }
-					
+
 #line 511 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 523 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 24:  {
 					{
 #line 72 "hb-buffer-deserialize-text.rl"
 						if (!parse_int  (tok, p, &pos.y_advance)) return false; }
-					
+
 #line 533 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 545 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 12:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 558 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 566 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 55 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 572 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 14:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 585 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 593 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 605 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 17:  {
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 621 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 55 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 627 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 639 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 11:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 652 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 660 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 672 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 684 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 13:  {
 					{
 #line 38 "hb-buffer-deserialize-text.rl"
-						
+
 						memset (&info, 0, sizeof (info));
 						memset (&pos , 0, sizeof (pos ));
 					}
-					
+
 #line 697 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 51 "hb-buffer-deserialize-text.rl"
-						
+
 						tok = p;
 					}
-					
+
 #line 705 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 58 "hb-buffer-deserialize-text.rl"
-						
+
 						/* TODO Unescape delimeters. */
 						if (!hb_font_glyph_from_string (font,
 						tok, p - tok,
 						&info.codepoint))
 						return false;
 					}
-					
+
 #line 717 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 55 "hb-buffer-deserialize-text.rl"
 						if (unlikely (!buffer->ensure_glyphs ())) return false; }
-					
+
 #line 723 "hb-buffer-deserialize-text.hh"
-					
+
 					{
 #line 43 "hb-buffer-deserialize-text.rl"
-						
+
 						buffer->add_info (info);
 						if (unlikely (!buffer->successful))
 						return false;
 						buffer->pos[buffer->len - 1] = pos;
 						*end_ptr = p;
 					}
-					
+
 #line 735 "hb-buffer-deserialize-text.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 		}
-		
+
 		if ( p == eof ) {
 			if ( cs >= 19 )
 				goto _out;
@@ -752,12 +752,12 @@ hb_font_t *font)
 		}
 		_out: {}
 	}
-	
+
 #line 138 "hb-buffer-deserialize-text.rl"
-	
-	
+
+
 	*end_ptr = p;
-	
+
 	return p == pe && *(p-1) != ']';
 }
 

@@ -3,10 +3,10 @@
     <style name="KivySupportCutout">
         <item name="android:windowNoTitle">true</item>
         <!-- Display cutout is an area on some devices that extends into the display surface -->
-        
+
     </style>
-    <string name="app_name">Gestion Funko Pop</string>
-    <string name="private_version">e2837c8d97ec2846dbe2a6b7171d315d3ce2e3ff</string>
+    <string name="app_name">Kivy android app</string>
+    <string name="private_version">5f03f8fcc4f1883a0b804c8dbdb483791b2393b3</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>

@@ -378,10 +378,10 @@ typename Iter::item_t>
 	machine_index_t (const machine_index_t& o) :
 	  hb_iter_with_fallback_t<machine_index_t<Iter>, typename Iter::item_t>(o),
 	  it (o.it) {}
-	
+
 	static constexpr bool is_random_access_iterator = Iter::is_random_access_iterator;
 	static constexpr bool is_sorted_iterator = Iter::is_sorted_iterator;
-	
+
 	typename Iter::item_t __item__ () const { return *it; }
 	typename Iter::item_t __item_at__ (unsigned i) const { return it[i]; }
 	unsigned __len__ () const { return it.len (); }
@@ -394,7 +394,7 @@ typename Iter::item_t>
 	void operator = (const machine_index_t& o) { *this = (*o.it).first; }
 	bool operator == (const machine_index_t& o) const { return (*it).first == (*o.it).first; }
 	bool operator != (const machine_index_t& o) const { return !(*this == o); }
-	
+
 	private:
 	Iter it;
 };
@@ -440,19 +440,19 @@ find_syllables_use (hb_buffer_t *buffer)
 	auto te = +p;
 	unsigned int act HB_UNUSED;
 	int cs;
-	
+
 #line 443 "hb-ot-shape-complex-use-machine.hh"
 	{
 		cs = (int)use_syllable_machine_start;
 		ts = 0;
 		te = 0;
 	}
-	
+
 #line 260 "hb-ot-shape-complex-use-machine.rl"
-	
-	
+
+
 	unsigned int syllable_serial = 1;
-	
+
 #line 455 "hb-ot-shape-complex-use-machine.hh"
 	{
 		unsigned int _trans = 0;
@@ -467,14 +467,14 @@ find_syllables_use (hb_buffer_t *buffer)
 				{
 #line 1 "NONE"
 					{ts = p;}}
-				
+
 #line 470 "hb-ot-shape-complex-use-machine.hh"
-				
-				
-				break; 
+
+
+				break;
 			}
 		}
-		
+
 		if ( p == eof ) {
 			if ( _use_syllable_machine_eof_trans[cs] > 0 ) {
 				_trans = (unsigned int)_use_syllable_machine_eof_trans[cs] - 1;
@@ -483,33 +483,33 @@ find_syllables_use (hb_buffer_t *buffer)
 		else {
 			_keys = ( _use_syllable_machine_trans_keys + ((cs<<1)));
 			_inds = ( _use_syllable_machine_indicies + (_use_syllable_machine_index_offsets[cs]));
-			
+
 			if ( ((*p).second.second.use_category()) <= 52 ) {
 				_ic = (int)_use_syllable_machine_char_class[(int)((*p).second.second.use_category()) - 0];
 				if ( _ic <= (int)(*( _keys+1)) && _ic >= (int)(*( _keys)) )
-					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) )); 
+					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) ));
 				else
 					_trans = (unsigned int)_use_syllable_machine_index_defaults[cs];
 			}
 			else {
 				_trans = (unsigned int)_use_syllable_machine_index_defaults[cs];
 			}
-			
+
 		}
 		cs = (int)_use_syllable_machine_cond_targs[_trans];
-		
+
 		if ( _use_syllable_machine_cond_actions[_trans] != 0 ) {
-			
+
 			switch ( _use_syllable_machine_cond_actions[_trans] ) {
 				case 2:  {
 					{
 #line 1 "NONE"
 						{te = p+1;}}
-					
+
 #line 508 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 5:  {
 					{
@@ -518,11 +518,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 163 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_independent_cluster); }
 						}}
-					
+
 #line 521 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 9:  {
 					{
@@ -531,11 +531,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 166 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_standard_cluster); }
 						}}
-					
+
 #line 534 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 7:  {
 					{
@@ -544,11 +544,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 171 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_broken_cluster); }
 						}}
-					
+
 #line 547 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 6:  {
 					{
@@ -557,11 +557,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 172 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_non_cluster); }
 						}}
-					
+
 #line 560 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 10:  {
 					{
@@ -570,11 +570,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 164 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_virama_terminated_cluster); }
 						}}
-					
+
 #line 573 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 11:  {
 					{
@@ -583,11 +583,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 165 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_sakot_terminated_cluster); }
 						}}
-					
+
 #line 586 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 8:  {
 					{
@@ -596,11 +596,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 166 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_standard_cluster); }
 						}}
-					
+
 #line 599 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 13:  {
 					{
@@ -609,11 +609,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 167 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_number_joiner_terminated_cluster); }
 						}}
-					
+
 #line 612 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 12:  {
 					{
@@ -622,11 +622,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 168 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_numeral_cluster); }
 						}}
-					
+
 #line 625 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 14:  {
 					{
@@ -635,11 +635,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 169 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_symbol_cluster); }
 						}}
-					
+
 #line 638 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 17:  {
 					{
@@ -648,11 +648,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 170 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_hieroglyph_cluster); }
 						}}
-					
+
 #line 651 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 15:  {
 					{
@@ -661,11 +661,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 171 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_broken_cluster); }
 						}}
-					
+
 #line 664 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 16:  {
 					{
@@ -674,11 +674,11 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 172 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_non_cluster); }
 						}}
-					
+
 #line 677 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 1:  {
 					{
@@ -688,16 +688,16 @@ find_syllables_use (hb_buffer_t *buffer)
 #line 171 "hb-ot-shape-complex-use-machine.rl"
 								found_syllable (use_broken_cluster); }
 						}}
-					
+
 #line 691 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 		}
-		
+
 		if ( p == eof ) {
 			if ( cs >= 2 )
 				goto _out;
@@ -708,22 +708,22 @@ find_syllables_use (hb_buffer_t *buffer)
 					{
 #line 1 "NONE"
 						{ts = 0;}}
-					
+
 #line 711 "hb-ot-shape-complex-use-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 			p += 1;
 			goto _resume;
 		}
 		_out: {}
 	}
-	
+
 #line 265 "hb-ot-shape-complex-use-machine.rl"
-	
+
 }
 
 #undef found_syllable

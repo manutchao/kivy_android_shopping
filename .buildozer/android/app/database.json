@@ -1,35 +1,42 @@
 [
-    {
-        "mi band 5": {
-            "libelle": "mi band 5",
-            "brand": "xiaomi",
-            "barcode": "6934177720017",
-            "note": 5
-        },
-        "mixa instensif peau s\u00e8che": {
-            "libelle": "mixa instensif peau s\u00e8che",
-            "brand": "mixa",
-            "barcode": "3058320002034",
-            "note": 5
-        },
-        "Volvic eau naturelle": {
-            "libelle": "Volvic eau naturelle",
-            "brand": "volvic",
-            "barcode": "3057640257773",
-            "note": 5
-        },
-        "San Pelegrino": {
-            "libelle": "San Pelegrino",
-            "brand": "San Pelegrino",
-            "barcode": "8002270014901",
-            "note": 5
-        },
-        "xcvxcv": {
-            "libelle": "ssss",
-            "brand": "test",
-            "barcode": "8002270664901",
-            "commentaire": "sdfsdfdfdffffff",
-            "note": 1
-        }
+  {
+    "mi band 5": {
+      "libelle": "mi band 5",
+      "brand": "xiaomi",
+      "barcode": "6934177720017",
+      "note": 5
+    },
+    "mixa instensif peau s\u00e8che": {
+      "libelle": "mixa instensif peau s\u00e8che",
+      "brand": "mixa",
+      "barcode": "3058320002034",
+      "note": 5
+    },
+    "Volvic eau naturelle": {
+      "libelle": "Volvic eau naturelle",
+      "brand": "volvic",
+      "barcode": "3057640257773",
+      "note": 5
+    },
+    "San Pelegrino": {
+      "libelle": "San Pelegrino",
+      "brand": "San Pelegrino",
+      "barcode": "8002270014901",
+      "note": 5
+    },
+    "xcvxcv": {
+      "libelle": "ssss",
+      "brand": "test",
+      "barcode": "8002270664901",
+      "commentaire": "sdfsdfdfdffffff",
+      "note": 1
+    },
+    "sdfsfsdf": {
+      "libelle": "sdfsfsdf",
+      "marque": "cxxxxx",
+      "barcode": "sssss",
+      "commentaire": "ggggg",
+      "note": 5
     }
+  }
 ]

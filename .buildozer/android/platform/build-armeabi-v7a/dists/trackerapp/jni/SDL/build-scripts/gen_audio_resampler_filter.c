@@ -160,4 +160,3 @@ int main(void)
 }
 
 /* vi: set ts=4 sw=4 expandtab: */
-

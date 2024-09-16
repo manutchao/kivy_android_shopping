@@ -28,19 +28,19 @@ index be5e8a247..aa032e1dd 100644
 --- a/src/gzip/adler32.c
 +++ b/src/gzip/adler32.c
 @@ -7,7 +7,9 @@
- 
+
  #include "zutil.h"
- 
+
 +#ifndef Z_FREETYPE
  local uLong adler32_combine_ OF((uLong adler1, uLong adler2, z_off64_t len2));
 +#endif
- 
+
  #define BASE 65521U     /* largest prime smaller than 65536 */
  #define NMAX 5552
 @@ -139,6 +141,8 @@ uLong ZEXPORT adler32(
      return adler32_z(adler, buf, len);
  }
- 
+
 +#ifndef Z_FREETYPE
 +
  /* ========================================================================= */
@@ -57,13 +57,13 @@ index 57faf3716..4f09a52a7 100644
 --- a/src/gzip/gzguts.h
 +++ b/src/gzip/gzguts.h
 @@ -163,7 +163,7 @@
- 
+
  /* values for gz_state how */
  #define LOOK 0      /* look for a gzip header */
 -#define COPY 1      /* copy input directly */
 +#define COPY__ 1    /* copy input directly */
  #define GZIP 2      /* decompress a gzip stream */
- 
+
  /* internal gzip file state data structure */
 diff --git a/src/gzip/inflate.c b/src/gzip/inflate.c
 index 4375557b4..5bf5b815e 100644
@@ -77,13 +77,13 @@ index 4375557b4..5bf5b815e 100644
  local unsigned syncsearch OF((unsigned FAR *have, const unsigned char FAR *buf,
                                unsigned len));
 +#endif
- 
+
  local int inflateStateCheck(
      z_streamp strm)
 @@ -245,6 +247,8 @@ int ZEXPORT inflateInit_(
      return inflateInit2_(strm, DEF_WBITS, version, stream_size);
  }
- 
+
 +#ifndef Z_FREETYPE
 +
  int ZEXPORT inflatePrime(
@@ -92,7 +92,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -266,6 +270,8 @@ int ZEXPORT inflatePrime(
      return Z_OK;
  }
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  /*
@@ -101,7 +101,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -1312,6 +1318,8 @@ int ZEXPORT inflateEnd(
      return Z_OK;
  }
- 
+
 +#ifndef Z_FREETYPE
 +
  int ZEXPORT inflateGetDictionary(
@@ -110,7 +110,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -1471,6 +1479,8 @@ int ZEXPORT inflateSync(
      return Z_OK;
  }
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  /*
@@ -119,7 +119,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -1489,6 +1499,8 @@ int ZEXPORT inflateSyncPoint(
      return state->mode == STORED && state->bits == 0;
  }
- 
+
 +#ifndef Z_FREETYPE
 +
  int ZEXPORT inflateCopy(
@@ -128,7 +128,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -1536,6 +1548,8 @@ int ZEXPORT inflateCopy(
      return Z_OK;
  }
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  int ZEXPORT inflateUndermine(
@@ -137,7 +137,7 @@ index 4375557b4..5bf5b815e 100644
 @@ -1569,6 +1583,8 @@ int ZEXPORT inflateValidate(
      return Z_OK;
  }
- 
+
 +#ifndef Z_FREETYPE
 +
  long ZEXPORT inflateMark(
@@ -156,7 +156,7 @@ index f127b6b1f..c6f5a52e1 100644
 @@ -3,6 +3,9 @@
   * For conditions of distribution and use, see copyright notice in zlib.h
   */
- 
+
 +#ifndef INFLATE_H
 +#define INFLATE_H
 +
@@ -176,7 +176,7 @@ index baa53a0b1..c94eb78b5 100644
 @@ -3,6 +3,9 @@
   * For conditions of distribution and use, see copyright notice in zlib.h
   */
- 
+
 +#ifndef INFTREES_H
 +#define INFTREES_H
 +
@@ -196,25 +196,25 @@ index 4a98e38bf..d760140c2 100644
 @@ -31,7 +31,7 @@
  #ifndef ZLIB_H
  #define ZLIB_H
- 
+
 -#include "zconf.h"
 +#include "ftzconf.h"
- 
+
  #ifdef __cplusplus
  extern "C" {
 @@ -211,6 +211,8 @@ typedef gz_header FAR *gz_headerp;
- 
+
  #define Z_NULL  0  /* for initializing zalloc, zfree, opaque */
- 
+
 +#ifndef Z_FREETYPE
 +
  #define zlib_version zlibVersion()
  /* for compatibility with versions < 1.0.2 */
- 
+
 @@ -246,7 +248,6 @@ ZEXTERN int ZEXPORT deflateInit OF((z_streamp strm, int level));
     this will be done by deflate().
  */
- 
+
 -
  ZEXTERN int ZEXPORT deflate OF((z_streamp strm, int flush));
  /*
@@ -222,15 +222,15 @@ index 4a98e38bf..d760140c2 100644
 @@ -373,6 +374,7 @@ ZEXTERN int ZEXPORT deflateEnd OF((z_streamp strm));
     deallocated).
  */
- 
+
 +#endif  /* !Z_FREETYPE */
- 
+
  /*
  ZEXTERN int ZEXPORT inflateInit OF((z_streamp strm));
 @@ -534,6 +536,8 @@ ZEXTERN int ZEXPORT inflateEnd OF((z_streamp strm));
      The following functions are needed only in some special applications.
  */
- 
+
 +#ifndef Z_FREETYPE
 +
  /*
@@ -239,7 +239,7 @@ index 4a98e38bf..d760140c2 100644
 @@ -956,6 +960,8 @@ ZEXTERN int ZEXPORT inflateCopy OF((z_streamp dest,
     destination.
  */
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  ZEXTERN int ZEXPORT inflateReset OF((z_streamp strm));
@@ -248,7 +248,7 @@ index 4a98e38bf..d760140c2 100644
 @@ -980,6 +986,8 @@ ZEXTERN int ZEXPORT inflateReset2 OF((z_streamp strm,
     the windowBits parameter is invalid.
  */
- 
+
 +#ifndef Z_FREETYPE
 +
  ZEXTERN int ZEXPORT inflatePrime OF((z_streamp strm,
@@ -257,7 +257,7 @@ index 4a98e38bf..d760140c2 100644
 @@ -1069,6 +1077,8 @@ ZEXTERN int ZEXPORT inflateGetHeader OF((z_streamp strm,
     stream state was inconsistent.
  */
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  /*
@@ -266,7 +266,7 @@ index 4a98e38bf..d760140c2 100644
 @@ -1095,6 +1105,8 @@ typedef unsigned (*in_func) OF((void FAR *,
                                  z_const unsigned char FAR * FAR *));
  typedef int (*out_func) OF((void FAR *, unsigned char FAR *, unsigned));
- 
+
 +#ifndef Z_FREETYPE
 +
  ZEXTERN int ZEXPORT inflateBack OF((z_streamp strm,
@@ -275,16 +275,16 @@ index 4a98e38bf..d760140c2 100644
 @@ -1214,6 +1226,8 @@ ZEXTERN uLong ZEXPORT zlibCompileFlags OF((void));
       27-31: 0 (reserved)
   */
- 
+
 +#endif  /* !Z_FREETYPE */
 +
  #ifndef Z_SOLO
- 
+
                          /* utility functions */
 @@ -1742,6 +1756,8 @@ ZEXTERN uLong ZEXPORT crc32 OF((uLong crc, const Bytef *buf, uInt len));
       if (crc != original_crc) error();
  */
- 
+
 +#ifndef Z_FREETYPE
 +
  ZEXTERN uLong ZEXPORT crc32_z OF((uLong crc, const Bytef *buf,
@@ -293,7 +293,7 @@ index 4a98e38bf..d760140c2 100644
 @@ -1822,6 +1838,19 @@ ZEXTERN int ZEXPORT inflateBackInit_ OF((z_streamp strm, int windowBits,
                             ZLIB_VERSION, (int)sizeof(z_stream))
  #endif
- 
+
 +#else  /* Z_FREETYPE */
 +
 +
@@ -308,20 +308,20 @@ index 4a98e38bf..d760140c2 100644
 +
 +
  #ifndef Z_SOLO
- 
+
  /* gzgetc() macro and its supporting function and exposed data structure.  Note
 @@ -1901,13 +1930,16 @@ ZEXTERN int ZEXPORT gzgetc_ OF((gzFile file));  /* backward compatibility */
- 
+
  #else /* Z_SOLO */
- 
+
 +#ifndef Z_FREETYPE
     ZEXTERN uLong ZEXPORT adler32_combine OF((uLong, uLong, z_off_t));
     ZEXTERN uLong ZEXPORT crc32_combine OF((uLong, uLong, z_off_t));
     ZEXTERN uLong ZEXPORT crc32_combine_gen OF((z_off_t));
 +#endif
- 
+
  #endif /* !Z_SOLO */
- 
+
  /* undocumented functions */
 +#ifndef Z_FREETYPE
  ZEXTERN const char   * ZEXPORT zError           OF((int));
@@ -332,7 +332,7 @@ index 4a98e38bf..d760140c2 100644
  #  endif
  #endif
 +#endif  /* !Z_FREETYPE */
- 
+
  #ifdef __cplusplus
  }
 diff --git a/src/gzip/zutil.h b/src/gzip/zutil.h
@@ -342,7 +342,7 @@ index d9a20ae1b..14f0f1a85 100644
 @@ -188,6 +188,8 @@ extern z_const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
    #pragma warn -8066
  #endif
- 
+
 +#ifndef Z_FREETYPE
 +
  /* provide prototypes for these when building zlib without LFS */
@@ -351,11 +351,11 @@ index d9a20ae1b..14f0f1a85 100644
 @@ -195,6 +197,8 @@ extern z_const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
      ZEXTERN uLong ZEXPORT crc32_combine64 OF((uLong, uLong, z_off_t));
  #endif
- 
+
 +#endif  /* !Z_FREETYPE */
 +
          /* common defaults */
- 
+
  #ifndef OS_CODE
 @@ -226,9 +230,9 @@ extern z_const char * const z_errmsg[10]; /* indexed by 2-zlib_error */
  #    define zmemcmp _fmemcmp

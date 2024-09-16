@@ -7,10 +7,9 @@ verify_ssl = true
 
 [packages]
 invoke = "==1.4.1"
-Kivy = "==2.1.0.dev0"
+Kivy = "*"
 kivymd = "*"
 buildozer = "*"
-Cython = "*"
 ffpyplayer = "*"
 python-for-android = "*"
 "kivy-garden.zbarcam" = "*"
@@ -24,6 +23,10 @@ bandit = "*"
 isort = "*"
 vulture = "*"
 kivy-garden = "*"
+plyer = "*"
+cython = "==0.29.36"
+jnius = "*"
+materialyoucolor = "*"
 
 [requires]
 python_version = "3.10"

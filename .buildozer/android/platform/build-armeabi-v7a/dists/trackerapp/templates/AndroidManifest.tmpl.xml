@@ -17,6 +17,13 @@
             {% endif %}
     />
 
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+
     <!-- Android 2.3.3 -->
     <uses-sdk android:minSdkVersion="{{ args.min_sdk_version }}" android:targetSdkVersion="{{ android_api }}" />
 
@@ -77,7 +84,7 @@
                   >
 
             <intent-filter>
-            {% if args.launcher %}            
+            {% if args.launcher %}
                 <action android:name="org.kivy.LAUNCH" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:scheme="{{ url_scheme }}" />
@@ -139,6 +146,16 @@
     {% for a in args.add_activity  %}
     <activity android:name="{{ a }}"></activity>
     {% endfor %}
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.test.trackerapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

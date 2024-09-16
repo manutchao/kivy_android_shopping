@@ -52,4 +52,3 @@ meson build --reconfigure
 meson compile -C build
 build/perf/perf
 ```
-

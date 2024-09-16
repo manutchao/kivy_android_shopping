@@ -445,7 +445,7 @@ STBIDEF int stbi_convert_wchar_to_utf8(char *buffer, size_t bufferlen, const wch
 ////////////////////////////////////
 //
 // 8-bits-per-channel indexed color
-// Will fail if image is not an 8-bit PNG or TGA with a palette. 
+// Will fail if image is not an 8-bit PNG or TGA with a palette.
 // Palette buffer needs to be at least 256 entries for PNG.
 //
 

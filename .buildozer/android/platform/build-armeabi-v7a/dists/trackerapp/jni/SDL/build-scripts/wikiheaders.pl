@@ -1653,4 +1653,3 @@ if ($copy_direction == 1) {  # --copy-to-headers
 }
 
 # end of wikiheaders.pl ...
-

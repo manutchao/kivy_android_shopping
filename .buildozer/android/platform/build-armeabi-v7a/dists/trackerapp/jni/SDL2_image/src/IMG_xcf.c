@@ -632,7 +632,7 @@ static void create_channel_surface (SDL_Surface * surf, xcf_image_type itype, Ui
   SDL_FillRect (surf, NULL, c);
 }
 
-static int 
+static int
 do_layer_surface(SDL_Surface * surface, SDL_RWops * src, xcf_header * head, xcf_layer * layer, load_tile_type load_tile)
 {
     xcf_hierarchy  *hierarchy;

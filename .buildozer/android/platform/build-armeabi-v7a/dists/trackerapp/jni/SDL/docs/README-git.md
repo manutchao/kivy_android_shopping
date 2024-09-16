@@ -16,4 +16,3 @@ before running configure.
 
 There is a web interface to the Git repository at:
 	http://github.com/libsdl-org/SDL/
-

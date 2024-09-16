@@ -95,4 +95,3 @@ BENCHMARK_CAPTURE (extents, glyf/vf - tp - Comfortaa, FONT_BASE_PATH "Comfortaa-
 BENCHMARK_CAPTURE (extents, glyf - ot - Roboto, FONT_BASE_PATH "Roboto-Regular.ttf", false, HARFBUZZ);
 BENCHMARK_CAPTURE (extents, glyf - ft - Roboto, FONT_BASE_PATH "Roboto-Regular.ttf", false, FREETYPE);
 BENCHMARK_CAPTURE (extents, glyf - tp - Roboto, FONT_BASE_PATH "Roboto-Regular.ttf", false, TTF_PARSER);
-

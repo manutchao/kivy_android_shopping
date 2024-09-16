@@ -185,4 +185,3 @@ if (not defined $wikipath) {
         }
     }
 }
-

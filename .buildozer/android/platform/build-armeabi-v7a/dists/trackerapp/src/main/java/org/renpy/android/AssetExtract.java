@@ -42,7 +42,7 @@ public class AssetExtract {
             } else if (method == "pybundle") {
                 assetStream = new FileInputStream(asset);
             }
-            
+
             tis = new TarInputStream(new BufferedInputStream(new GZIPInputStream(new BufferedInputStream(assetStream, 8192)), 8192));
         } catch (IOException e) {
             Log.e("python", "opening up extract tar", e);

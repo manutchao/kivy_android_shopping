@@ -1329,4 +1329,3 @@ int tje_encode_with_func(tje_write_func* func,
 #ifdef __cplusplus
 }  // extern C
 #endif
-

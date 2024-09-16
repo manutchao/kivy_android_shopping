@@ -65,4 +65,3 @@ If you have any questions, don't hesitate to ask on the SDL mailing list:
 
 Enjoy!
 	Sam Lantinga				(slouken@libsdl.org)
-

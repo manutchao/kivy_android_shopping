@@ -113,7 +113,7 @@ static Sint32 convert_vibrato_rate(MidiSong *song, Uint8 rate)
 {
   /* Return a suitable vibrato_control_ratio value */
   return
-    (VIBRATO_RATE_TUNING * song->rate) / 
+    (VIBRATO_RATE_TUNING * song->rate) /
       (rate * 2 * VIBRATO_SAMPLE_INCREMENTS);
 }
 
@@ -133,7 +133,7 @@ static void reverse_data(Sint16 *sp, Sint32 ls, Sint32 le)
 
 /*
    If panning or note_to_use != -1, it will be used for all samples,
-   instead of the sample-specific values in the instrument file. 
+   instead of the sample-specific values in the instrument file.
 
    For note_to_use, any value <0 or >127 will be forced to 0.
 
@@ -307,16 +307,16 @@ static void load_instrument(MidiSong *song, const char *name,
 	 understand why, and fixing it by adding the Sustain flag to
 	 all looped patches probably breaks something else. We do it
 	 anyway. */
-      if (sp->modes & MODES_LOOPING) 
+      if (sp->modes & MODES_LOOPING)
 	sp->modes |= MODES_SUSTAIN;
 
       /* Strip any loops and envelopes we're permitted to */
-      if ((strip_loop==1) && 
-	  (sp->modes & (MODES_SUSTAIN | MODES_LOOPING | 
+      if ((strip_loop==1) &&
+	  (sp->modes & (MODES_SUSTAIN | MODES_LOOPING |
 			MODES_PINGPONG | MODES_REVERSE)))
 	{
 	  SNDDBG((" - Removing loop and/or sustain\n"));
-	  sp->modes &=~(MODES_SUSTAIN | MODES_LOOPING | 
+	  sp->modes &=~(MODES_SUSTAIN | MODES_LOOPING |
 			MODES_PINGPONG | MODES_REVERSE);
 	}
 
@@ -337,7 +337,7 @@ static void load_instrument(MidiSong *song, const char *name,
 	      sp->modes &= ~(MODES_SUSTAIN|MODES_ENVELOPE);
 	      SNDDBG((" - No loop, removing sustain and envelope\n"));
 	    }
-	  else if (!SDL_memcmp(tmp, "??????", 6) || tmp[11] >= 100) 
+	  else if (!SDL_memcmp(tmp, "??????", 6) || tmp[11] >= 100)
 	    {
 	      /* Envelope rates all maxed out? Envelope end at a high "offset"?
 		 That's a weird envelope. Take it out. */
@@ -359,7 +359,7 @@ static void load_instrument(MidiSong *song, const char *name,
 	{
 	  sp->envelope_rate[j]=
 	    convert_envelope_rate(song, tmp[j]);
-	  sp->envelope_offset[j]= 
+	  sp->envelope_offset[j]=
 	    convert_envelope_offset(tmp[6+j]);
 	}
 
@@ -519,7 +519,7 @@ static int fill_bank(MidiSong *song, int dr, int b)
 	  if (!(bank->tone[i].name))
 	    {
 	      SNDDBG(("No instrument mapped to %s %d, program %d%s\n",
-		   (dr)? "drum set" : "tone bank", b, i, 
+		   (dr)? "drum set" : "tone bank", b, i,
 		   (b!=0) ? "" : " - this instrument will not be heard"));
 	      if (b!=0)
 		{
@@ -544,18 +544,18 @@ static int fill_bank(MidiSong *song, int dr, int b)
 	  else
 	    {
 	      load_instrument(song,
-				     bank->tone[i].name, 
+				     bank->tone[i].name,
 				     &bank->instrument[i],
 				     (dr) ? 1 : 0,
 				     bank->tone[i].pan,
 				     bank->tone[i].amp,
-				     (bank->tone[i].note!=-1) ? 
+				     (bank->tone[i].note!=-1) ?
 				     bank->tone[i].note :
 				     ((dr) ? i : -1),
 				     (bank->tone[i].strip_loop!=-1) ?
 				     bank->tone[i].strip_loop :
 				     ((dr) ? 1 : -1),
-				     (bank->tone[i].strip_envelope != -1) ? 
+				     (bank->tone[i].strip_envelope != -1) ?
 				     bank->tone[i].strip_envelope :
 				     ((dr) ? 1 : -1),
 				     bank->tone[i].strip_tail);

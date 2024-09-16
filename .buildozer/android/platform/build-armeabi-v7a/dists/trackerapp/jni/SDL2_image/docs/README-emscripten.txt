@@ -17,4 +17,3 @@ Step 2 - get sdl_image
  * (where /path/to/sdl is the path you passed as --prefix to SDL2 configure)
  * emmake make
  * make install
- 

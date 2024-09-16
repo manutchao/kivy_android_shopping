@@ -55,12 +55,12 @@ public class ProjectChooser extends Activity implements AdapterView.OnItemClickL
             }
         }
 
-        if (projectAdapter.getCount() != 0) {        
+        if (projectAdapter.getCount() != 0) {
 
             View v = resourceManager.inflateView("project_chooser");
             ListView l = (ListView) resourceManager.getViewById(v, "projectList");
 
-            l.setAdapter(projectAdapter);                
+            l.setAdapter(projectAdapter);
             l.setOnItemClickListener(this);
 
             setContentView(v);

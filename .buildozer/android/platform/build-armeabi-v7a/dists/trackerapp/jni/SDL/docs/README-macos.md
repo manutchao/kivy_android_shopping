@@ -282,4 +282,3 @@ Functionality may be added in the future to help this.
 
 Bugs are tracked at [the GitHub issue tracker](https://github.com/libsdl-org/SDL/issues/).
 Please feel free to report bugs there!
-

@@ -59,8 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %{prefix}/lib/pkgconfig/*.pc
 
 %changelog
-* Wed Jan 19 2000 Sam Lantinga 
+* Wed Jan 19 2000 Sam Lantinga
 - converted to get package information from configure
 * Sun Jan 16 2000 Hakan Tandogan <hakan@iconsult.com>
 - initial spec file
-

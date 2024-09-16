@@ -1,14 +1,14 @@
 from kivy.lang import Builder
-from kivy.uix.boxlayout import BoxLayout
-from kivymd.uix.screen import Screen
-from kivymd.uix.toolbar import MDTopAppBar
-from kivymd.uix.label import MDLabel
-from kivy.uix.floatlayout import FloatLayout
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.textfield import MDTextField
-from kivymd.uix.button import MDIconButton, MDRoundFlatIconButton
 from kivy.metrics import dp
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.slider import Slider
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.button import MDIconButton, MDRoundFlatIconButton
+from kivymd.uix.label import MDLabel
+from kivymd.uix.screen import Screen
+from kivymd.uix.textfield import MDTextField
+from kivymd.uix.toolbar import MDTopAppBar
 
 Builder.load_file("kv/detail_screen.kv")
 
@@ -21,10 +21,10 @@ class DetailScreen(Screen):
     def update_screen(self, element):
         pass
 
-    def submit():
+    def submit(self):
         pass
 
-    def reset():
+    def reset(self):
         pass
 
     #     detail_toolbar = MDTopAppBar(
@@ -40,7 +40,7 @@ class DetailScreen(Screen):
     #     detail_layout.add_widget(txt_field1)
 
     #     txt_field2 = MDTextField(
-    #         text=element.get("barcode"), halign="left", hint_text="CODE BARRE"
+    #         text=element.get("barcode"), halign="left", hint_text="BARCODE"
     #     )
     #     detail_layout.add_widget(txt_field2)
 

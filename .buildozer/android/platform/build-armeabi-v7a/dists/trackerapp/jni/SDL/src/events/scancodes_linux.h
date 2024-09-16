@@ -829,7 +829,7 @@ done
 #!/bin/bash
 
 function get_comment
-{   
+{
     name=$(echo "$1" | awk '{print $7}')
     if [ "$name" != "" ]; then
         grep -E "$name\s" /usr/include/linux/input-event-codes.h | grep -F "/*" | sed 's,[^/]*/,/,'

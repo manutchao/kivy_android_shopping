@@ -205,7 +205,7 @@ find_syllables_khmer (hb_buffer_t *buffer)
 	unsigned int p, pe, eof, ts, te, act HB_UNUSED;
 	int cs;
 	hb_glyph_info_t *info = buffer->info;
-	
+
 #line 210 "hb-ot-shape-complex-khmer-machine.hh"
 	{
 		cs = (int)khmer_syllable_machine_start;
@@ -213,15 +213,15 @@ find_syllables_khmer (hb_buffer_t *buffer)
 		te = 0;
 		act = 0;
 	}
-	
+
 #line 106 "hb-ot-shape-complex-khmer-machine.rl"
-	
-	
+
+
 	p = 0;
 	pe = eof = buffer->len;
-	
+
 	unsigned int syllable_serial = 1;
-	
+
 #line 226 "hb-ot-shape-complex-khmer-machine.hh"
 	{
 		unsigned int _trans = 0;
@@ -236,14 +236,14 @@ find_syllables_khmer (hb_buffer_t *buffer)
 				{
 #line 1 "NONE"
 					{ts = p;}}
-				
+
 #line 241 "hb-ot-shape-complex-khmer-machine.hh"
-				
-				
-				break; 
+
+
+				break;
 			}
 		}
-		
+
 		if ( p == eof ) {
 			if ( _khmer_syllable_machine_eof_trans[cs] > 0 ) {
 				_trans = (unsigned int)_khmer_syllable_machine_eof_trans[cs] - 1;
@@ -252,33 +252,33 @@ find_syllables_khmer (hb_buffer_t *buffer)
 		else {
 			_keys = ( _khmer_syllable_machine_trans_keys + ((cs<<1)));
 			_inds = ( _khmer_syllable_machine_indicies + (_khmer_syllable_machine_index_offsets[cs]));
-			
+
 			if ( (info[p].khmer_category()) <= 29 && (info[p].khmer_category()) >= 1 ) {
 				_ic = (int)_khmer_syllable_machine_char_class[(int)(info[p].khmer_category()) - 1];
 				if ( _ic <= (int)(*( _keys+1)) && _ic >= (int)(*( _keys)) )
-					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) )); 
+					_trans = (unsigned int)(*( _inds + (int)( _ic - (int)(*( _keys)) ) ));
 				else
 					_trans = (unsigned int)_khmer_syllable_machine_index_defaults[cs];
 			}
 			else {
 				_trans = (unsigned int)_khmer_syllable_machine_index_defaults[cs];
 			}
-			
+
 		}
 		cs = (int)_khmer_syllable_machine_cond_targs[_trans];
-		
+
 		if ( _khmer_syllable_machine_cond_actions[_trans] != 0 ) {
-			
+
 			switch ( _khmer_syllable_machine_cond_actions[_trans] ) {
 				case 2:  {
 					{
 #line 1 "NONE"
 						{te = p+1;}}
-					
+
 #line 279 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 8:  {
 					{
@@ -287,11 +287,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 82 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_non_khmer_cluster); }
 						}}
-					
+
 #line 292 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 10:  {
 					{
@@ -300,11 +300,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 80 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_consonant_syllable); }
 						}}
-					
+
 #line 305 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 12:  {
 					{
@@ -313,11 +313,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 81 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_broken_cluster); }
 						}}
-					
+
 #line 318 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 11:  {
 					{
@@ -326,11 +326,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 82 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_non_khmer_cluster); }
 						}}
-					
+
 #line 331 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 1:  {
 					{
@@ -340,11 +340,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 80 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_consonant_syllable); }
 						}}
-					
+
 #line 345 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 5:  {
 					{
@@ -354,11 +354,11 @@ find_syllables_khmer (hb_buffer_t *buffer)
 #line 81 "hb-ot-shape-complex-khmer-machine.rl"
 								found_syllable (khmer_broken_cluster); }
 						}}
-					
+
 #line 359 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 3:  {
 					{
@@ -369,59 +369,59 @@ find_syllables_khmer (hb_buffer_t *buffer)
 									{
 #line 81 "hb-ot-shape-complex-khmer-machine.rl"
 										found_syllable (khmer_broken_cluster); }
-									break; 
+									break;
 								}
 								case 3:  {
 									p = ((te))-1;
 									{
 #line 82 "hb-ot-shape-complex-khmer-machine.rl"
 										found_syllable (khmer_non_khmer_cluster); }
-									break; 
+									break;
 								}
 							}}
 					}
-					
+
 #line 385 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 4:  {
 					{
 #line 1 "NONE"
 						{te = p+1;}}
-					
+
 #line 395 "hb-ot-shape-complex-khmer-machine.hh"
-					
+
 					{
 #line 81 "hb-ot-shape-complex-khmer-machine.rl"
 						{act = 2;}}
-					
+
 #line 401 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 				case 9:  {
 					{
 #line 1 "NONE"
 						{te = p+1;}}
-					
+
 #line 411 "hb-ot-shape-complex-khmer-machine.hh"
-					
+
 					{
 #line 82 "hb-ot-shape-complex-khmer-machine.rl"
 						{act = 3;}}
-					
+
 #line 417 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 		}
-		
+
 		if ( p == eof ) {
 			if ( cs >= 20 )
 				goto _out;
@@ -432,22 +432,22 @@ find_syllables_khmer (hb_buffer_t *buffer)
 					{
 #line 1 "NONE"
 						{ts = 0;}}
-					
+
 #line 437 "hb-ot-shape-complex-khmer-machine.hh"
-					
-					
-					break; 
+
+
+					break;
 				}
 			}
-			
+
 			p += 1;
 			goto _resume;
 		}
 		_out: {}
 	}
-	
+
 #line 114 "hb-ot-shape-complex-khmer-machine.rl"
-	
+
 }
 
 #undef found_syllable

@@ -1,7 +1,6 @@
-from kivymd.uix.screen import MDScreen
 from kivy.lang import Builder
-from kivymd.uix.screen import MDScreen
 from kivy_garden.zbarcam import ZBarCam
+from kivymd.uix.screen import MDScreen
 
 
 class ScannerScreen(MDScreen):

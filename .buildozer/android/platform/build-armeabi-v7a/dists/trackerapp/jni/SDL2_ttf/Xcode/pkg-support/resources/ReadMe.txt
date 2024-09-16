@@ -25,4 +25,3 @@ You may alternatively install it in <your home directory>/Library/Frameworks if 
 	For static library target, you will need to link against libfreetype.dylib for your final app.
 
 2006-01-31 - First entry in history. Updated for Universal Binaries. Static library of libfreetype has been updated by copying the version Apple provides from the 10.4u SDK.
-

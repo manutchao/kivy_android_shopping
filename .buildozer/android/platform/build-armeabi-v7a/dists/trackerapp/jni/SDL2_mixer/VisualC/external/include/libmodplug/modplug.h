@@ -154,7 +154,7 @@ MODPLUG_EXPORT ModPlugNote* ModPlug_GetPattern(ModPlugFile* file, int pattern, u
  * =================
  *
  * Use this callback if you want to 'modify' the mixed data of LibModPlug.
- * 
+ *
  * void proc(int* buffer,unsigned long channels,unsigned long nsamples) ;
  *
  * 'buffer': A buffer of mixed samples

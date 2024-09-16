@@ -209,5 +209,3 @@ Dependencies  \xC4  $OutOfDate
 		-objext .x \xB6
 		{Includes} \xB6
 		{SrcFiles}
-
-

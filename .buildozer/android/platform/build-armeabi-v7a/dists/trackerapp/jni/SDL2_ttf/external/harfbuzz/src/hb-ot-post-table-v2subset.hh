@@ -52,11 +52,11 @@ HB_INTERNAL bool postV2Tail::serialize (hb_serialize_context_t *c,
   {
     unsigned glyph_id = _.first;
     unsigned new_index = _.second;
-    
+
     if (new_index < 258) continue;
     if (copied_indices.has (new_index)) continue;
     copied_indices.add (new_index);
-    
+
     hb_bytes_t s = reinterpret_cast<const post::accelerator_t*> (_post)->find_glyph_name (glyph_id);
     HBUINT8 *o = c->allocate_size<HBUINT8> (HBUINT8::static_size * (s.length + 1));
     if (unlikely (!o)) return_trace (false);

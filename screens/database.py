@@ -1,7 +1,8 @@
-from kivymd.uix.screen import MDScreen
-from kivymd.uix.list import OneLineListItem
 import json
-from kivy.uix.screenmanager import ScreenManager, Screen
+
+from kivy.uix.screenmanager import Screen, ScreenManager
+from kivymd.uix.list import OneLineListItem
+from kivymd.uix.screen import MDScreen
 
 
 class DatabaseScreen(MDScreen):
@@ -10,7 +11,7 @@ class DatabaseScreen(MDScreen):
         self.load_json_data()
 
     def load_json_data(self):
-        """Charge les données à partir d'un fichier JSON et les affiche dans la liste."""
+        """Load data from json file and display in list"""
         try:
             with open("database.json", "r") as f:
                 data = json.load(f)
@@ -19,11 +20,8 @@ class DatabaseScreen(MDScreen):
 
             for product_dict in data:
                 for product_name, details in product_dict.items():
-
-                    # Crée un élément de liste avec le libellé
                     elem = OneLineListItem(text=product_name)
 
-                    # Connecte l'événement on_release à la méthode on_item_click
                     elem.bind(
                         on_release=lambda instance: self.on_item_click(
                             product_name, details
@@ -54,9 +52,9 @@ class DatabaseScreen(MDScreen):
     def on_item_click(self, item_title, item_data):
         """Redirige vers la page d'ajout avec les champs pré-remplis."""
         add_screen = self.manager.get_screen("content_item")
-        add_screen.ids.field_libelle.text = item_title
-        add_screen.ids.field_brand.text = item_data.get("brand", None)
-        add_screen.ids.field_barcode.text = item_data.get("barcode", None)
-        add_screen.ids.field_comment.text = item_data.get("commentaire", None)
-        add_screen.ids.field_note.text = str(item_data.get("note", None))
+        # add_screen.ids.field_libelle.text = item_title
+        # add_screen.ids.field_brand.text = item_data.get("brand", None)
+        # add_screen.ids.field_barcode.text = item_data.get("barcode", None)
+        # add_screen.ids.field_comment.text = item_data.get("commentaire", None)
+        # add_screen.ids.field_note.text = str(item_data.get("note", None))
         self.manager.current = "content_item"

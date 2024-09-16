@@ -29,12 +29,12 @@ static sample_t *rs_plain(MidiSong *song, int v, Sint32 *countptr)
   /* Play sample until end, then free the voice. */
 
   sample_t v1, v2;
-  Voice 
+  Voice
     *vp=&(song->voice[v]);
-  sample_t 
+  sample_t
     *dest=song->resample_buffer,
     *src=vp->sample->data;
-  Sint32 
+  Sint32
     ofs=vp->sample_offset,
     incr=vp->sample_increment,
     le=vp->sample->data_length,
@@ -79,7 +79,7 @@ static sample_t *rs_loop(MidiSong *song, Voice *vp, Sint32 count)
   /* Play sample until end-of-loop, skip back and continue. */
 
   sample_t v1, v2;
-  Sint32 
+  Sint32
     ofs=vp->sample_offset,
     incr=vp->sample_increment,
     le=vp->sample->loop_end,
@@ -117,12 +117,12 @@ static sample_t *rs_loop(MidiSong *song, Voice *vp, Sint32 count)
 static sample_t *rs_bidir(MidiSong *song, Voice *vp, Sint32 count)
 {
   sample_t v1, v2;
-  Sint32 
+  Sint32
     ofs=vp->sample_offset,
     incr=vp->sample_increment,
     le=vp->sample->loop_end,
     ls=vp->sample->loop_start;
-  sample_t 
+  sample_t
     *dest=song->resample_buffer,
     *src=vp->sample->data;
   Sint32
@@ -242,7 +242,7 @@ static Sint32 update_vibrato(MidiSong *song, Voice *vp, int sign)
 		  (double)(song->rate)),
 		 FRACTION_BITS);
 
-  pb=(int)((timi_sine(vp->vibrato_phase * 
+  pb=(int)((timi_sine(vp->vibrato_phase *
 		 (SINE_CYCLE_LENGTH/(2*VIBRATO_SAMPLE_INCREMENTS)))
 	    * (double)(depth) * VIBRATO_AMPLITUDE_TUNING));
 
@@ -270,15 +270,15 @@ static sample_t *rs_vib_plain(MidiSong *song, int v, Sint32 *countptr)
 
   sample_t v1, v2;
   Voice *vp=&(song->voice[v]);
-  sample_t 
-    *dest=song->resample_buffer, 
+  sample_t
+    *dest=song->resample_buffer,
     *src=vp->sample->data;
-  Sint32 
+  Sint32
     le=vp->sample->data_length,
-    ofs=vp->sample_offset, 
-    incr=vp->sample_increment, 
+    ofs=vp->sample_offset,
+    incr=vp->sample_increment,
     count=*countptr;
-  int 
+  int
     cc=vp->vibrato_control_counter;
 
   /* This has never been tested */
@@ -317,15 +317,15 @@ static sample_t *rs_vib_loop(MidiSong *song, Voice *vp, Sint32 count)
   /* Play sample until end-of-loop, skip back and continue. */
 
   sample_t v1, v2;
-  Sint32 
+  Sint32
     ofs=vp->sample_offset,
     incr=vp->sample_increment,
     le=vp->sample->loop_end,
     ll=le - vp->sample->loop_start;
-  sample_t 
+  sample_t
     *dest=song->resample_buffer,
     *src=vp->sample->data;
-  int 
+  int
     cc=vp->vibrato_control_counter;
   Sint32 i, j;
   int
@@ -371,15 +371,15 @@ static sample_t *rs_vib_loop(MidiSong *song, Voice *vp, Sint32 count)
 static sample_t *rs_vib_bidir(MidiSong *song, Voice *vp, Sint32 count)
 {
   sample_t v1, v2;
-  Sint32 
+  Sint32
     ofs=vp->sample_offset,
     incr=vp->sample_increment,
     le=vp->sample->loop_end,
     ls=vp->sample->loop_start;
-  sample_t 
+  sample_t
     *dest=song->resample_buffer,
     *src=vp->sample->data;
-  int 
+  int
     cc=vp->vibrato_control_counter;
   Sint32
     le2=le<<1,

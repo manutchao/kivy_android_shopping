@@ -34,5 +34,5 @@ https://cmake.org/cmake/help/latest/command/find_package.html#config-mode-search
 	Ogg 1.1.4
 	Vorbis 1.2.3
 	Mac native midi had to be disabled because the code depends on legacy Quicktime and won't compile in 64-bit.
-	
+
 2006-01-31 - First entry in history. Updated for Universal Binaries. Static libraries of libogg and libvorbis have been brought up-to-date and built as Universal. Infrastructure has been added to support building against smpeg statically, but there may be bugs in smpeg itself (unrelated to static linking) which prevent MP3 playback.

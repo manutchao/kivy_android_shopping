@@ -1,13 +1,13 @@
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.screenmanager import Screen
 from kivymd.app import MDApp
-from kivymd.uix.card import MDCard
 from kivymd.uix.button import MDRaisedButton
-from kivymd.uix.slider import MDSlider
-from kivymd.uix.label import MDLabel
+from kivymd.uix.card import MDCard
 from kivymd.uix.fitimage import FitImage
+from kivymd.uix.label import MDLabel
 from kivymd.uix.screen import MDScreen
+from kivymd.uix.slider import MDSlider
 
 
 class ContentItemScreen(MDScreen):

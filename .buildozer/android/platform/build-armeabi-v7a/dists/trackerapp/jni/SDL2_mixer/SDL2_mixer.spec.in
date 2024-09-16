@@ -61,4 +61,3 @@ rm -rf $RPM_BUILD_ROOT
 - converted to get package information from configure
 * Sun Jan 16 2000 Hakan Tandogan <hakan@iconsult.com>
 - initial spec file
-

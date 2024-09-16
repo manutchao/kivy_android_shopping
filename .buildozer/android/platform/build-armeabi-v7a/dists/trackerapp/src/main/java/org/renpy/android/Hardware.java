@@ -103,7 +103,7 @@ public class Hardware {
 
         /**
          * Read the Sensor
-         */ 
+         */
         public float[] readSensor() {
             if (sSensorEvent != null) {
                 return sSensorEvent.values;

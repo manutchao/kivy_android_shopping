@@ -30,4 +30,3 @@ int SDL_SYS_OpenURL(const char *url)
 }
 
 /* vi: set ts=4 sw=4 expandtab: */
-

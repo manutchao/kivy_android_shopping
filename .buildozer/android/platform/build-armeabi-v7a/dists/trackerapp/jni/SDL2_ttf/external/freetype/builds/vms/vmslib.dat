@@ -8,7 +8,7 @@
 !    - Lines starting with ! are treated as comments
 !    - Elements in a data line are separated by # signs
 !    - The elements need to be listed in the following order
-!      1.) Name of the Library 
+!      1.) Name of the Library
 !      2.) Location where the object library can be found
 !      3.) Location where the include files for the library can be found
 !      4.) Include file used to verify library location

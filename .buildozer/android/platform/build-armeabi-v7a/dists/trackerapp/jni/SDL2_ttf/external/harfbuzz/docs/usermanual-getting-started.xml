@@ -34,13 +34,13 @@
       Ignorable</literal> codepoints, and to modify the cluster-merging
       behavior for the buffer. For shaped output buffers, the
       individual X and Y offsets and <literal>advances</literal>
-      (the logical dimensions) of each glyph are 
+      (the logical dimensions) of each glyph are
       accessible. HarfBuzz also flags glyphs as
       <literal>UNSAFE_TO_BREAK</literal> if breaking the string at
       that glyph (e.g., in a line-breaking or hyphenation process)
       would require re-shaping the text.
     </para>
-    
+
     <para>
       HarfBuzz also provides methods to compare the contents of
       buffers, join buffers, normalize buffer contents, and handle
@@ -52,7 +52,7 @@
     <para>
       Although the default <function>hb_shape()</function> function is
       sufficient for most use cases, a variant is also provided that
-      lets you specify which of HarfBuzz's shapers to use on a buffer. 
+      lets you specify which of HarfBuzz's shapers to use on a buffer.
     </para>
 
     <para>
@@ -64,7 +64,7 @@
       variable fonts are supported, and HarfBuzz allows you to set
       variation-axis coordinates on font objects.
     </para>
-    
+
     <para>
       HarfBuzz provides glue code to integrate with various other
       libraries, including FreeType, GObject, and CoreText. Support
@@ -76,10 +76,10 @@
   <section id="terminology">
     <title>Terminology</title>
     <para>
-      
+
     </para>
       <variablelist>
-	<?dbfo list-presentation="blocks"?> 
+	<?dbfo list-presentation="blocks"?>
 	<varlistentry>
 	  <term>script</term>
 	  <listitem>
@@ -107,7 +107,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term>shaper</term>
 	  <listitem>
@@ -117,11 +117,11 @@
 	      implements separate shapers for Indic, Arabic, Thai and
 	      Lao, Khmer, Myanmar, Tibetan, Hangul, Hebrew, the
 	      Universal Shaping Engine (USE), and a default shaper for
-	      non-complex scripts. 
+	      non-complex scripts.
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term>cluster</term>
 	  <listitem>
@@ -142,7 +142,7 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term>grapheme</term>
 	  <listitem>
@@ -166,12 +166,12 @@
 	    </para>
 	  </listitem>
 	</varlistentry>
-	
+
 	<varlistentry>
 	  <term>syllable</term>
 	  <listitem>
 	    <para>
-	      In linguistics, a <emphasis>syllable</emphasis> is an 
+	      In linguistics, a <emphasis>syllable</emphasis> is an
 	      a sequence of sounds that makes up a building block of a
 	      particular language. Every language has its own set of
 	      rules describing what constitutes a valid syllable.
@@ -197,7 +197,7 @@
 	  </listitem>
 	</varlistentry>
       </variablelist>
-    
+
   </section>
 
 
@@ -301,7 +301,7 @@
       hb_face_destroy(face);
       hb_blob_destroy(blob);
     </programlisting>
-    
+
     <para>
       This example shows enough to get us started using HarfBuzz. In
       the sections that follow, we will use the remainder of

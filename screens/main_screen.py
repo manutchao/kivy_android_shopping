@@ -7,8 +7,9 @@ from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.list import MDList, OneLineListItem
 from kivymd.uix.screen import Screen
 from kivymd.uix.toolbar import MDTopAppBar
-from screens.scanner_screen import ScannerScreen
+
 from screens.add_screen import AddScreen
+from screens.scanner_screen import ScannerScreen
 
 
 class MainScreen(Screen):
@@ -127,7 +128,6 @@ class MainScreen(Screen):
 #         self.setup_layout()
 
 #     def setup_layout(self):
-#         """Configure la mise en page principale et les éléments de l'interface utilisateur."""
 #         main_layout = BoxLayout(orientation="vertical")
 #         main_layout.add_widget(self.create_toolbar())
 #         main_layout.add_widget(self.create_bottom_navigation())
@@ -198,7 +198,7 @@ class MainScreen(Screen):
 #         return item
 
 #     def on_database_tab_press(self, instance):
-#         """Remplit la liste avec les données lorsque l'onglet de la base de données est sélectionné."""
+#         """Fill database with data when database menu is selectionned"""
 #         data = self.app.load_json_data()
 #         self.data_list.clear_widgets()
 #         for item in data:

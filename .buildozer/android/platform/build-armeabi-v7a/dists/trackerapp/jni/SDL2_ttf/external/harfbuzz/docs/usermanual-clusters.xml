@@ -26,7 +26,7 @@
       The definitions of the two terms are similar. However, clusters
       are only relevant for script shaping and glyph layout. In
       contrast, graphemes are a property of the underlying script, and
-      are of interest when client programs implement orthographic 
+      are of interest when client programs implement orthographic
       or linguistic functionality.
     </para>
     <para>
@@ -50,7 +50,7 @@
       when decomposing a code point through the
       <literal>ccmp</literal> feature). Operations like these alter
       clusters; HarfBuzz tracks the changes to ensure that no clusters
-      get lost or broken during shaping. 
+      get lost or broken during shaping.
     </para>
     <para>
       HarfBuzz records cluster information independently from how
@@ -69,7 +69,7 @@
       <listitem>
 	<para>
 	  Correctly highlighting a text selection that includes some,
-	  but not all, of the characters in a word. 
+	  but not all, of the characters in a word.
 	</para>
       </listitem>
       <listitem>
@@ -194,7 +194,7 @@
 	  as well as the <emphasis>Zero Width Joiner</emphasis> and
 	  <emphasis>Zero Width Non-Joiner</emphasis> code points, are
 	  assigned the cluster value of the closest preceding code
-	  point from <emphasis>different</emphasis> category. 
+	  point from <emphasis>different</emphasis> category.
 	</para>
 	<para>
 	  In essence, whenever a base character is followed by a mark
@@ -209,7 +209,7 @@
 	<para>
 	  Client programs can specify level 0 behavior for a buffer by
 	  setting its <literal>cluster_level</literal> to
-	  <literal>HB_BUFFER_CLUSTER_LEVEL_MONOTONE_GRAPHEMES</literal>. 
+	  <literal>HB_BUFFER_CLUSTER_LEVEL_MONOTONE_GRAPHEMES</literal>.
 	</para>
       </listitem>
       <listitem>
@@ -220,7 +220,7 @@
 	  implement backward compatibility with the old HarfBuzz.
 	</para>
 	<para>
-	  Level 1 differs from level 0 by not merging the 
+	  Level 1 differs from level 0 by not merging the
 	  clusters of marks and other modifier code points with the
 	  preceding "base" code point's cluster. By preserving the
 	  separate cluster values of these marks and modifier code
@@ -231,7 +231,7 @@
 	<para>
 	  Client programs can specify level 1 behavior for a buffer by
 	  setting its <literal>cluster_level</literal> to
-	  <literal>HB_BUFFER_CLUSTER_LEVEL_MONOTONE_CHARACTERS</literal>. 
+	  <literal>HB_BUFFER_CLUSTER_LEVEL_MONOTONE_CHARACTERS</literal>.
 	</para>
       </listitem>
       <listitem>
@@ -242,7 +242,7 @@
 	</para>
 	<para>
 	  This difference can be seen most clearly when HarfBuzz processes
-	  ligature substitutions and glyph decompositions. In level 0 
+	  ligature substitutions and glyph decompositions. In level 0
 	  and level 1, ligatures and glyph decomposition both involve
 	  merging clusters; in level 2, neither of these operations
 	  triggers a merge.
@@ -250,7 +250,7 @@
 	<para>
 	  Client programs can specify level 2 behavior for a buffer by
 	  setting its <literal>cluster_level</literal> to
-	  <literal>HB_BUFFER_CLUSTER_LEVEL_CHARACTERS</literal>. 
+	  <literal>HB_BUFFER_CLUSTER_LEVEL_CHARACTERS</literal>.
 	</para>
       </listitem>
     </itemizedlist>
@@ -259,7 +259,7 @@
       assign initial cluster values in a buffer by reusing the indices
       of the code points in the input text. This gives a sequence of
       cluster values that is monotonically increasing (for example,
-      0,1,2,3,4). 
+      0,1,2,3,4).
     </para>
     <para>
       It is not <emphasis>required</emphasis> that the cluster values
@@ -314,12 +314,12 @@
       </listitem>
     </itemizedlist>
   </section>
-  
+
   <section id="a-clustering-example-for-levels-0-and-1">
     <title>A clustering example for levels 0 and 1</title>
     <para>
       The basic shaping operations affect clusters in a predictable
-      manner when using level 0 or level 1: 
+      manner when using level 0 or level 1:
     </para>
     <itemizedlist>
       <listitem>
@@ -382,13 +382,13 @@
     <para>
       because 1 is the minimum of the set {1,2}, which were the
       cluster values of <literal>B</literal> and
-      <literal>C</literal>. 
+      <literal>C</literal>.
     </para>
     <para>
       Next, let us say that the <literal>BC</literal> ligature glyph
       decomposes into three components, and <literal>D</literal> also
       decomposes into two components. Whenever a cluster decomposes,
-      its components each inherit the cluster value of their parent: 
+      its components each inherit the cluster value of their parent:
     </para>
     <programlisting>
       A,BC0,BC1,BC2,D0,D1,E
@@ -505,12 +505,12 @@
       relying on cluster boundaries for cursor positioning is wrong: cursor
       positions should be determined based on Unicode grapheme
       boundaries, not on shaping-cluster boundaries. As such, using
-      level 1 clustering behavior is recommended. 
+      level 1 clustering behavior is recommended.
     </para>
     <para>
       One final facet of levels 0 and 1 is worth noting. HarfBuzz
       currently does not allow any
-      <emphasis>multiple-substitution</emphasis> GSUB lookups to 
+      <emphasis>multiple-substitution</emphasis> GSUB lookups to
       replace a glyph with zero glyphs (in other words, to delete a
       glyph).
     </para>
@@ -542,7 +542,7 @@
     </para>
     <para>
       The level 2 behavior is easy to describe, but it may be
-      difficult to understand in practical terms. In brief, level 2 
+      difficult to understand in practical terms. In brief, level 2
       performs no merging of clusters whatsoever.
     </para>
     <para>
@@ -573,12 +573,12 @@
       This occurrence sounds similar to a cluster merge, but it is
       different. In particular, no subsequent characters &mdash;
       including marks and modifiers &mdash; are affected. They retain
-      their previous cluster values. 
+      their previous cluster values.
     </para>
     <para>
       Level 2 cluster behavior is ultimately less complex than level 0
       or level 1, but there are several cases for which processing
-      cluster values produced at level 2 may be tricky. 
+      cluster values produced at level 2 may be tricky.
     </para>
     <section id="ligatures-with-combining-marks-in-level-2">
       <title>Ligatures with combining marks in level 2</title>
@@ -630,7 +630,7 @@
       <para>
 	In contrast, the "merged" cluster values of the mark glyphs
 	that are seen in the level 0 and level 1 output are evidence
-	that a ligature substitution took place. 
+	that a ligature substitution took place.
       </para>
     </section>
     <section id="reordering-in-level-2">
@@ -671,7 +671,7 @@
       </para>
       <programlisting>
 	AB,D,C,E
-	0 ,3,2,4   
+	0 ,3,2,4
       </programlisting>
       <para>
 	There is no way for a client program to differentiate between

@@ -94,7 +94,7 @@
       through a scaling factor. You can set horizontal and
       vertical scaling factors on the
       font by calling <function>hb_font_set_scale(font, x_scale,
-      y_scale)</function>. 
+      y_scale)</function>.
     </para>
     <para>
       There may be times when you are handed a font object and need to
@@ -136,7 +136,7 @@
       Unicode functions in the buffers chapter, HarfBuzz also wants to
       make it easy for you to assign a substitute set of font
       functions if you are developing a program to work with a library
-      or platform that provides its own font functions. 
+      or platform that provides its own font functions.
     </para>
     <para>
       Therefore, the HarfBuzz API defines a set of virtual
@@ -378,14 +378,14 @@
 
   <!-- Commenting out FreeType integration section-holder for now. May move
        to the full-blown Integration Chapter. -->
-  
+
   <!--   <section id="fonts-and-faces-freetype">
     <title>Using FreeType</title>
     <para>
 
     </para>
     <para>
-      
+
     </para>
   </section> -->
 
@@ -407,7 +407,7 @@
       binary from the face object (not from a font object, notably) by
       calling <function>hb_ot_var_get_axis_count(face)</function> to
       find the number of axes, then using
-      <function>hb_ot_var_get_axis_infos()</function> to collect the 
+      <function>hb_ot_var_get_axis_infos()</function> to collect the
       axis structures:
     </para>
     <programlisting language="C">
@@ -455,7 +455,7 @@
       range actually implemented in the font's variation axis. After
       all, a font might only provide lighter-than-regular weights, and
       setting a heavier value on the <literal>wght</literal> axis will
-      not change that. 
+      not change that.
     </para>
     <para>
       Once your variation settings are specified on your font object,

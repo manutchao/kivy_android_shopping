@@ -218,12 +218,12 @@ static SDL_Surface* WIC_LoadImage(SDL_RWops *src)
         IMG_SetError("WIC failed to initialize!");
         return NULL;
     }
-    
+
     Sint64 fileSize = SDL_RWsize(src);
     Uint8* memoryBuffer = (Uint8*)SDL_malloc(fileSize);
     if (!memoryBuffer) {
         SDL_OutOfMemory();
-        return NULL;  
+        return NULL;
     }
 
     SDL_RWread(src, memoryBuffer, 1, fileSize);
@@ -296,4 +296,3 @@ SDL_Surface *IMG_LoadTIF_RW(SDL_RWops *src)
 }
 
 #endif /* SDL_IMAGE_USE_WIC_BACKEND */
-

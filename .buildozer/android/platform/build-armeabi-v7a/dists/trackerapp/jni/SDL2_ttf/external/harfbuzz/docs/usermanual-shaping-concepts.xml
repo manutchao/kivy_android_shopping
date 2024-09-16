@@ -32,10 +32,10 @@
       constitute a shaping <emphasis>model</emphasis>. OpenType
       specifies a set of shaping models that covers all of
       Unicode. Other shaping models are available, however, including
-      Graphite and Apple Advanced Typography (AAT). 
+      Graphite and Apple Advanced Typography (AAT).
     </para>
   </section>
-  
+
   <section id="complex-scripts">
     <title>Complex scripts</title>
     <para>
@@ -67,7 +67,7 @@
       requiring an analysis stage.
     </para>
   </section>
-  
+
   <section id="shaping-operations">
     <title>Shaping operations</title>
     <para>
@@ -81,9 +81,9 @@
       text run varies from script to script, as do the order that the
       operations are performed in and which codepoints are
       affected. However, the same general set of shaping operations is
-      common to all of the complex-script shaping models. 
+      common to all of the complex-script shaping models.
     </para>
-    
+
     <itemizedlist>
       <listitem>
 	<para>
@@ -96,7 +96,7 @@
 	  more than one reordering step.
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  A <emphasis>joining</emphasis> operation replaces a glyph
@@ -104,7 +104,7 @@
 	  or more of the adjacent glyphs in the sequence.
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  A contextual <emphasis>substitution</emphasis> operation
@@ -125,7 +125,7 @@
 	  performed in separate steps.
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  A contextual <emphasis>positioning</emphasis> operation
@@ -144,10 +144,10 @@
 	  when the script uses <emphasis>stacking</emphasis> characters.
 	</para>
       </listitem>
-      
+
     </itemizedlist>
   </section>
-  
+
   <section id="unicode-character-categories">
     <title>Unicode character categories</title>
     <para>
@@ -202,7 +202,7 @@
     </para>
 
   </section>
-  
+
   <section id="text-runs">
     <title>Text runs</title>
     <para>
@@ -215,7 +215,7 @@
     </para>
     <para>
       For shaping purposes, all real-world text streams must be first
-      segmented into runs that have a uniform set of properties. 
+      segmented into runs that have a uniform set of properties.
     </para>
     <para>
       In particular, shaping models always assume that every codepoint
@@ -224,7 +224,7 @@
       <emphasis>language</emphasis> tag.
     </para>
   </section>
-  
+
   <section id="opentype-shaping-models">
     <title>OpenType shaping models</title>
     <para>
@@ -314,7 +314,7 @@
 	  the above, script-specific shaping models, including
 	  Javanese, Balinese, Buginese, Batak, Chakma, Lepcha, Modi,
 	  Phags-pa, Tagalog, Siddham, Sundanese, Tai Le, Tai Tham, Tai
-	  Viet, and many others. 
+	  Viet, and many others.
 	</para>
       </listitem>
 
@@ -330,9 +330,9 @@
       </listitem>
 
     </itemizedlist>
-    
+
   </section>
-  
+
   <section id="graphite-shaping">
     <title>Graphite shaping</title>
     <para>
@@ -352,11 +352,11 @@
       defined for OpenType shaping.
     </para>
   </section>
-  
+
   <section id="aat-shaping">
     <title>AAT shaping</title>
     <para>
-      In contrast to OpenType shaping, AAT shaping does not specify a 
+      In contrast to OpenType shaping, AAT shaping does not specify a
       predefined set of shaping models or a set of supported scripts.
     </para>
     <para>

@@ -366,7 +366,7 @@ static void nsvg__flattenCubicBez(NSVGrasterizer* r,
 	}
 	++level;
 	if (level > max_level) return;
-	
+
 	x234 = (x23+x34)*0.5f;
 	y234 = (y23+y34)*0.5f;
 	x1234 = (x123+x234)*0.5f;

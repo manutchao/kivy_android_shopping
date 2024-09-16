@@ -37,7 +37,7 @@ android {
         manifestPlaceholders = {{ args.manifest_placeholders}}
     }
 
-	
+
 	packagingOptions {
         jniLibs {
             useLegacyPackaging = true
@@ -49,7 +49,7 @@ android {
         exclude 'lib/**/gdb.setup'
         {%- endif %}
 	}
-	
+
 
 	{% if args.sign -%}
 	signingConfigs {
@@ -124,4 +124,3 @@ dependencies {
     implementation 'com.airbnb.android:lottie:6.1.0'
     {%- endif %}
 }
-

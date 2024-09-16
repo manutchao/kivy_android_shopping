@@ -566,4 +566,3 @@ void *SDL_bsearch(const void *key, const void *base, size_t nmemb, size_t size, 
 }
 
 /* vi: set ts=4 sw=4 expandtab: */
-

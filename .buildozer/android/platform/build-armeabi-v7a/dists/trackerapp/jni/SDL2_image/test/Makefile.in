@@ -123,7 +123,7 @@ testimage_DEPENDENCIES = ../libSDL2_image.la $(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
-am__v_lt_1 = 
+am__v_lt_1 =
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -131,11 +131,11 @@ am__v_P_1 = :
 AM_V_GEN = $(am__v_GEN_@AM_V@)
 am__v_GEN_ = $(am__v_GEN_@AM_DEFAULT_V@)
 am__v_GEN_0 = @echo "  GEN     " $@;
-am__v_GEN_1 = 
+am__v_GEN_1 =
 AM_V_at = $(am__v_at_@AM_V@)
 am__v_at_ = $(am__v_at_@AM_DEFAULT_V@)
 am__v_at_0 = @
-am__v_at_1 = 
+am__v_at_1 =
 DEFAULT_INCLUDES = -I.@am__isrc@
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
@@ -150,7 +150,7 @@ LTCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CC = $(am__v_CC_@AM_V@)
 am__v_CC_ = $(am__v_CC_@AM_DEFAULT_V@)
 am__v_CC_0 = @echo "  CC      " $@;
-am__v_CC_1 = 
+am__v_CC_1 =
 CCLD = $(CC)
 LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -158,7 +158,7 @@ LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
-am__v_CCLD_1 = 
+am__v_CCLD_1 =
 SOURCES = $(testimage_SOURCES)
 DIST_SOURCES = $(testimage_SOURCES)
 am__can_run_installinfo = \
@@ -715,7 +715,7 @@ clean-testexecPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-testimage$(EXEEXT): $(testimage_OBJECTS) $(testimage_DEPENDENCIES) $(EXTRA_testimage_DEPENDENCIES) 
+testimage$(EXEEXT): $(testimage_OBJECTS) $(testimage_DEPENDENCIES) $(EXTRA_testimage_DEPENDENCIES)
 	@rm -f testimage$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(testimage_OBJECTS) $(testimage_LDADD) $(LIBS)
 
@@ -970,7 +970,7 @@ $(TEST_SUITE_LOG): $(TEST_LOGS)
 	fi;								\
 	$$success || exit 1
 
-check-TESTS: 
+check-TESTS:
 	@list='$(RECHECK_LOGS)';           test -z "$$list" || rm -f $$list
 	@list='$(RECHECK_LOGS:.log=.trs)'; test -z "$$list" || rm -f $$list
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
@@ -980,7 +980,7 @@ check-TESTS:
 	log_list=`echo $$log_list`; trs_list=`echo $$trs_list`; \
 	$(MAKE) $(AM_MAKEFLAGS) $(TEST_SUITE_LOG) TEST_LOGS="$$log_list"; \
 	exit $$?;
-recheck: all 
+recheck: all
 	@test -z "$(TEST_SUITE_LOG)" || rm -f $(TEST_SUITE_LOG)
 	@set +e; $(am__set_TESTS_bases); \
 	bases=`for i in $$bases; do echo $$i; done \

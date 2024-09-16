@@ -13,4 +13,3 @@ Ludovic Rousseau <rousseau@debian.org>:
 
 For a comprehensive list of contributions, see the commit list at github:
 	https://github.com/libusb/hidapi/commits/master
-

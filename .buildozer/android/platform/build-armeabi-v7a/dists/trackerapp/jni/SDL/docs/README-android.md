@@ -72,7 +72,7 @@ done in the build directory for the app!
 For more complex projects, follow these instructions:
 
 1. Get the source code for SDL and copy the 'android-project' directory located at SDL/android-project to a suitable location. Also make sure to rename it to your project name (In these examples: YOURPROJECT).
-   
+
    (The 'android-project' directory can basically be seen as a sort of starting point for the android-port of your project. It contains the glue code between the Android Java 'frontend' and the SDL code 'backend'. It also contains some standard behaviour, like how events should be handled, which you will be able to change.)
 
 2. Move or [symlink](https://en.wikipedia.org/wiki/Symbolic_link) the SDL directory into the "YOURPROJECT/app/jni" directory
@@ -480,4 +480,3 @@ Known issues
 
 - The number of buttons reported for each joystick is hardcoded to be 36, which
 is the current maximum number of buttons Android can report.
-

@@ -24,14 +24,14 @@
     <title>Creating and destroying buffers</title>
     <para>
       As we saw in our <emphasis>Getting Started</emphasis> example, a
-      buffer is created and 
+      buffer is created and
       initialized with <function>hb_buffer_create()</function>. This
       produces a new, empty buffer object, instantiated with some
       default values and ready to accept your Unicode strings.
     </para>
     <para>
       HarfBuzz manages the memory of objects (such as buffers) that it
-      creates, so you don't have to. When you have finished working on 
+      creates, so you don't have to. When you have finished working on
       a buffer, you can call <function>hb_buffer_destroy()</function>:
     </para>
     <programlisting language="C">
@@ -70,7 +70,7 @@
       instead call <function>hb_buffer_clear_contents(buf)</function>.
     </para>
   </section>
-  
+
   <section id="adding-text-to-the-buffer">
     <title>Adding text to the buffer</title>
     <para>
@@ -152,9 +152,9 @@
       to a buffer. Invalid code points will be replaced, but it is up
       to you to do any deep-sanity checking necessary.
     </para>
-    
+
   </section>
-  
+
   <section id="setting-buffer-properties">
     <title>Setting buffer properties</title>
     <para>
@@ -245,7 +245,7 @@
       are invisible. By default, the standard space character
       <literal>U+0020</literal> is used; you can replace this (for
       example, when using a font that provides script-specific
-      spaces) with 
+      spaces) with
     </para>
     <programlisting language="C">
       hb_buffer_set_invisible_glyph(buf, replacement_glyph);
@@ -269,7 +269,7 @@
     <para>
       <literal>HB_BUFFER_FLAG_PRESERVE_DEFAULT_IGNORABLES</literal>
       tells HarfBuzz not to hide glyphs with the
-      <literal>Default_Ignorable</literal> property in Unicode. This 
+      <literal>Default_Ignorable</literal> property in Unicode. This
       property designates control characters and other non-printing
       code points, such as joiners and variation selectors. Normally
       HarfBuzz replaces them in the output buffer with zero-width
@@ -290,7 +290,7 @@
       base character).
     </para>
   </section>
-  
+
   <section id="customizing-unicode-functions">
     <title>Customizing Unicode functions</title>
     <para>
@@ -398,15 +398,15 @@
       <function>hb_unicode_general_category_func_t</function>, you can call
     </para>
     <programlisting language="C">
-      hb_unicode_funcs_set_general_category_func (*ufuncs, func, *user_data, destroy)	    
+      hb_unicode_funcs_set_general_category_func (*ufuncs, func, *user_data, destroy)
     </programlisting>
     <para>
       Virtualizing this set of Unicode functions is primarily intended
       to improve portability. There is no need for every client
       program to make the effort to replace the default options, so if
       you are unsure, do not feel any pressure to customize
-      <literal>unicode_funcs</literal>. 
+      <literal>unicode_funcs</literal>.
     </para>
   </section>
-  
+
 </chapter>

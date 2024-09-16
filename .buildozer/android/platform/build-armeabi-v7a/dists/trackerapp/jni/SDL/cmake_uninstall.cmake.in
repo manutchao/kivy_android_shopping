@@ -15,4 +15,3 @@ foreach (file ${files})
         message(FATAL_ERROR "Problem when removing \"$ENV{DESTDIR}${file}\"")
     endif (NOT ${rm_retval} EQUAL 0)
 endforeach(file)
-

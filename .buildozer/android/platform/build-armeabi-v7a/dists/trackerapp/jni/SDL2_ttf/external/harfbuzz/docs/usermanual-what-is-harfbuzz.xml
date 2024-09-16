@@ -13,7 +13,7 @@
     glyphs from the font, applying all of the necessary layout rules
     and font features. HarfBuzz then returns the string to you in the
     form that is correctly arranged for the language and writing
-    system. 
+    system.
   </para>
   <para>
     HarfBuzz can properly shape all of the world's major writing
@@ -49,7 +49,7 @@
     OpenType specification defines a series of <ulink url="https://github.com/n8willis/opentype-shaping-documents">shaping models</ulink> for
     various scripts from around the world. These shaping models depend on
     the font incorporating certain features as
-    <emphasis>lookups</emphasis> in its <literal>GSUB</literal> 
+    <emphasis>lookups</emphasis> in its <literal>GSUB</literal>
     and <literal>GPOS</literal> tables.
     </para>
     <para>
@@ -66,13 +66,13 @@
       Text strings will usually be tagged with a script and language
       tag that provide the context needed to perform text shaping
       correctly.  The necessary <ulink
-      url="https://docs.microsoft.com/en-us/typography/opentype/spec/scripttags">script</ulink> 
+      url="https://docs.microsoft.com/en-us/typography/opentype/spec/scripttags">script</ulink>
       and <ulink
       url="https://docs.microsoft.com/en-us/typography/opentype/spec/languagetags">language</ulink>
       tags are defined by OpenType.
     </para>
   </section>
-  
+
   <section id="why-do-i-need-a-shaping-engine">
     <title>Why do I need a shaping engine?</title>
     <para>
@@ -140,7 +140,7 @@
 	  and the amount of ligature application used are under your
 	  control. In other words, <emphasis>text shaping involves
 	  querying the font's ligature tables and determining what
-	  substitutions should be made</emphasis>. 
+	  substitutions should be made</emphasis>.
         </para>
       </listitem>
       <listitem>
@@ -159,9 +159,9 @@
 	</para>
 	<para>
 	  But &quot;டு&quot; does not have a Unicode codepoint. To
-	  find this glyph, you need to consult the table inside 
+	  find this glyph, you need to consult the table inside
 	  the font (the <literal>GSUB</literal> table) that contains
-	  substitution information. In other words, <emphasis>text shaping 
+	  substitution information. In other words, <emphasis>text shaping
 	  chooses the correct glyph for a sequence of characters
 	  provided</emphasis>.
         </para>
@@ -194,7 +194,7 @@
 	<para>
 	  Some fonts will provide this character as a single
 	  zhe-with-breve glyph, but other fonts will not and, instead,
-	  will expect the rendering engine to form the character by 
+	  will expect the rendering engine to form the character by
           superimposing the separate &quot;ж&quot; and &quot;˘&quot;
 	  glyphs.
 	</para>
@@ -224,7 +224,7 @@
       </para>
     </note>
   </section>
-  
+
 
   <section id="what-does-harfbuzz-do">
     <title>What does HarfBuzz do?</title>
@@ -261,31 +261,31 @@
 	  Myanmar
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  Tibetan
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  Hangul
 	</para>
       </listitem>
-      
+
       <listitem>
 	<para>
 	  Hebrew
 	</para>
-      </listitem>      
+      </listitem>
       <listitem>
 	<para>
 	  The Universal Shaping Engine or <emphasis>USE</emphasis>
 	  (covering complex scripts not covered by the above shaping
 	  models)
 	</para>
-      </listitem>      
+      </listitem>
       <listitem>
 	<para>
 	  A default shaping model for non-complex scripts
@@ -306,7 +306,7 @@
       version of Graphite shaping (the "Graphite 2" model) and AAT
       shaping.
     </para>
-    
+
     <para>
       HarfBuzz can read and understand TrueType fonts (.ttf), TrueType
       collections (.ttc), and OpenType fonts (.otf, including those
@@ -319,7 +319,7 @@
       font renderer. It can run on Linux, Android, Windows, macOS, and
       iOS systems.
     </para>
-    
+
     <para>
       In addition to its core shaping functionality, HarfBuzz provides
       functions for accessing other font features, including optional
@@ -331,7 +331,7 @@
       some low-level math-shaping operations, although it does not
       currently perform full shaping for mathematical typesetting.
     </para>
-    
+
     <para>
       A suite of command-line utilities is also provided in the
       source-code tree, designed to help users test and debug
@@ -423,10 +423,10 @@
       As a layout-engine implementor, HarfBuzz will help you with the
       interface between your text and your font, and that's something
       that you'll need&mdash;what you then do with the glyphs that your font
-      returns is up to you. 
+      returns is up to you.
     </para>
   </section>
-    
+
   <section id="why-is-it-called-harfbuzz">
     <title>Why is it called HarfBuzz?</title>
     <para>

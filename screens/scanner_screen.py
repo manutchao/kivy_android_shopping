@@ -1,8 +1,8 @@
 # scanner_screen.py
 
 from kivy.uix.boxlayout import BoxLayout
-from kivymd.uix.button import MDRaisedButton
 from kivy_garden.zbarcam import ZBarCam
+from kivymd.uix.button import MDRaisedButton
 
 
 class ScannerScreen(BoxLayout):

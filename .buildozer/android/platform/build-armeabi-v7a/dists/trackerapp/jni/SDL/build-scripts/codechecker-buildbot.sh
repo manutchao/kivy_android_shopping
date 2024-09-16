@@ -56,4 +56,3 @@ rm -rf codechecker-buildbot
 echo "Done. Final output is in '$FINALDIR' ..."
 
 # end of codechecker-buildbot.sh ...
-

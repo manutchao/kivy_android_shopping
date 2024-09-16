@@ -1147,4 +1147,3 @@ print ()
 print ('#endif /* HB_OT_TAG_TABLE_HH */')
 print ()
 print ('/* == End of generated table == */')
-

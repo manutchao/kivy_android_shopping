@@ -238,7 +238,7 @@ static MidiEventList *read_midi_event(MidiSong *song)
 		  }
 		if (control != 255)
 		  {
-		    MIDIEVENT(song->at, control, lastchan, b, 0); 
+		    MIDIEVENT(song->at, control, lastchan, b, 0);
 		  }
 	      }
 	      break;

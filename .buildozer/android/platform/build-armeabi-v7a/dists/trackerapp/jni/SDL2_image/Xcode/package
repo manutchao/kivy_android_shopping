@@ -160,7 +160,7 @@ if ( $?fflag ) then
     if ( "$parent" == "$pkgTop" ) set parent = "."
 else
     set parent = $rootDir
-    set pkgTop = .    
+    set pkgTop = .
 endif
 if ( $?usetar ) then
     set pkgArchive = $pkg/$root.tar.Z
@@ -236,7 +236,7 @@ else
 endif
 /bin/chmod 444 $pkgArchive
 echo done.
-	
+
 # generate sizes file
 set pkgSizes = $pkg/$root.sizes
 echo -n "	generating sizes file ... "
@@ -254,7 +254,7 @@ if ( $?tiff ) then
     @ tiffSize = `/bin/ls -s $pkgTiff | $awk '{print $1}'`
 else
     @ tiffSize = 0
-endif 
+endif
 
 @ installedSize = `/usr/bin/du -k -s $rootDir | $awk '{print $1}'`
 @ installedSize += $infoSize + $bomSize + $tiffSize + 3
@@ -269,4 +269,3 @@ echo " ... finished generating $pkg."
 exit(0)
 
 # end package
-	

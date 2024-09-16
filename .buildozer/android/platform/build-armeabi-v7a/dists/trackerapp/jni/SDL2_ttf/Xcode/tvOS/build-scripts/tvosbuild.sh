@@ -66,7 +66,7 @@ echo "CXXFLAGS ................... ${CXXFLAGS}"
 echo "LDFLAGS .................... ${LDFLAGS}"
 
 ###################################################################
-# This section contains the build commands for each of the 
+# This section contains the build commands for each of the
 # architectures that will be included in the universal binaries.
 ###################################################################
 

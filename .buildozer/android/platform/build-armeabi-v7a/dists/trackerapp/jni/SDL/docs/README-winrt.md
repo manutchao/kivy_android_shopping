@@ -515,5 +515,3 @@ According to Microsoft, "Xbox compatible controllers" should work inside
 UWP apps, potentially with more working in the future.  This includes, but
 may not be limited to, Microsoft-made Xbox controllers and USB adapters.
 (Source: https://social.msdn.microsoft.com/Forums/en-US/9064838b-e8c3-4c18-8a83-19bf0dfe150d/xinput-fails-to-detect-game-controllers?forum=wpdevelop)
-
-

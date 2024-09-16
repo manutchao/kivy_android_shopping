@@ -1,18 +1,18 @@
 /**
- * Copyright 2012 Kamran Zafar 
- * 
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- * 
- *      http://www.apache.org/licenses/LICENSE-2.0 
- * 
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License. 
- * 
+ * Copyright 2012 Kamran Zafar
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 
 package org.kamranzafar.jtar;
@@ -27,7 +27,7 @@ import java.io.RandomAccessFile;
 
 /**
  * @author Kamran Zafar
- * 
+ *
  */
 public class TarOutputStream extends OutputStream {
 	private final OutputStream out;
@@ -48,7 +48,7 @@ public class TarOutputStream extends OutputStream {
 	}
 
 	/**
-	 * Opens a file for writing. 
+	 * Opens a file for writing.
 	 */
 	public TarOutputStream(final File fout, final boolean append) throws IOException {
 		@SuppressWarnings("resource")
@@ -62,7 +62,7 @@ public class TarOutputStream extends OutputStream {
 
     /**
      * Appends the EOF record and closes the stream
-     * 
+     *
      * @see java.io.FilterOutputStream#close()
      */
     @Override
@@ -73,7 +73,7 @@ public class TarOutputStream extends OutputStream {
     }
     /**
      * Writes a byte to the stream and updates byte counters
-     * 
+     *
      * @see java.io.FilterOutputStream#write(int)
      */
     @Override
@@ -88,7 +88,7 @@ public class TarOutputStream extends OutputStream {
 
     /**
      * Checks if the bytes being written exceed the current entry size.
-     * 
+     *
      * @see java.io.FilterOutputStream#write(byte[], int, int)
      */
     @Override
@@ -102,17 +102,17 @@ public class TarOutputStream extends OutputStream {
         }
 
         out.write( b, off, len );
-        
+
         bytesWritten += len;
 
         if (currentEntry != null) {
             currentFileSize += len;
-        }        
+        }
     }
 
     /**
      * Writes the next tar entry header on the stream
-     * 
+     *
      * @param entry
      * @throws IOException
      */
@@ -129,7 +129,7 @@ public class TarOutputStream extends OutputStream {
 
     /**
      * Closes the current tar entry
-     * 
+     *
      * @throws IOException
      */
     protected void closeCurrentEntry() throws IOException {
@@ -148,7 +148,7 @@ public class TarOutputStream extends OutputStream {
 
     /**
      * Pads the last content block
-     * 
+     *
      * @throws IOException
      */
     protected void pad() throws IOException {
