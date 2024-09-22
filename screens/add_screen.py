@@ -1,4 +1,5 @@
-# add_screen.py
+"""Add form screen."""
+
 from kivy.lang import Builder
 from kivymd.uix.screen import Screen
 
@@ -6,12 +7,14 @@ Builder.load_file("kv/add_screen.kv")
 
 
 class AddScreen(Screen):
+    """Add form screen."""
+
     def __init__(self, app, **kwargs):
-        super(AddScreen, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.app = app
 
     def submit(self, app):
-        # Récupérer les champs du formulaire
+        """Form validation."""
         libelle = app.root.get_screen("detail_screen").ids.tf_libelle.text
         brand = app.root.get_screen("detail_screen").ids.tf_brand.text
         barcode = app.root.get_screen("detail_screen").ids.tf_barcode.text
@@ -25,7 +28,7 @@ class AddScreen(Screen):
         print(f"Note: {rating}")
 
     def reset(self, app):
-        # Réinitialiser les champs du formulaire
+        """Reset form inputs."""
         screen = app.root.get_screen("detail_screen")
         screen.ids.tf_libelle.text = ""
         screen.ids.tf_brand.text = ""
@@ -35,12 +38,13 @@ class AddScreen(Screen):
         print("Formulaire réinitialisé")
 
     def show_main_screen(self, app):
-        # Revenir à l'écran principal
+        """Redirect to home."""
         app.root.current = "main_screen"
         print("Retour à l'écran principal")
 
     def delete_item(self, app):
-        # Logique pour supprimer un élément (à adapter selon votre besoin)
+        """Delete item."""
+        _ = app  # Ignorer l'argument non utilisé
         print("Élément supprimé")
 
 

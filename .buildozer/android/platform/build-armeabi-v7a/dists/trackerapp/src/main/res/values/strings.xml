@@ -6,7 +6,7 @@
 
     </style>
     <string name="app_name">Kivy android app</string>
-    <string name="private_version">5f03f8fcc4f1883a0b804c8dbdb483791b2393b3</string>
+    <string name="private_version">8f96cfef9ed5fb87b7e81a173892ca6c2f768738</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>

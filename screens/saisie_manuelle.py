@@ -1,3 +1,5 @@
+"""Screen add article."""
+
 import json
 import logging
 import os
@@ -13,6 +15,7 @@ from kivymd.uix.screen import MDScreen
 from kivymd.uix.snackbar import Snackbar
 
 if platform == "android":
+    from android import activity
     from android.permissions import Permission, request_permissions
 
     request_permissions(
@@ -31,42 +34,47 @@ if platform == "android":
 
 
 def generate_file_name(extension=".jpg", longueur=10):
+    """Generate file name."""
     caracteres = string.ascii_letters + string.digits
     nom_fichier = "".join(secrets.choice(caracteres) for _ in range(longueur))
     return nom_fichier + extension
 
 
 class SaisieManuelleScreen(MDScreen):
+    """Screen add article."""
+
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.img_uri = None
+        self.dialog = None
+        self.clock = None
         if platform == "android":
-            from android import activity
-
             activity.bind(on_activity_result=self.on_activity_result)
 
     def photo_taken(self, path):
-        # Mettre à jour l'image affichée avec la photo prise
+        """Preview image took."""
         self.ids.image_preview.source = path
 
     def photo_chosen(self, path):
-        # Mettre à jour l'image affichée avec la photo sélectionnée
-        self.ids.image_preview.source = path[0]  # `path` est une liste
+        """Preview image selected."""
+        self.ids.image_preview.source = path[0]
 
     def choose_photo(self):
+        """Use camera to take photo."""
         if platform == "android":
-            # Utiliser Intent pour ouvrir la galerie
-            Intent = autoclass("android.content.Intent")
-            PythonActivity = autoclass("org.kivy.android.PythonActivity")
+            intent = autoclass("android.content.Intent")
+            python_activity = autoclass("org.kivy.android.PythonActivity")
 
-            intent = Intent(Intent.ACTION_PICK)
+            intent = intent(intent.ACTION_PICK)
             intent.setType("image/*")
 
-            PythonActivity.mActivity.startActivityForResult(intent, 1)
+            python_activity.mActivity.startActivityForResult(intent, 1)
 
         else:
             Snackbar(text="Functionnality only available on Android").open()
 
     def take_photo(self):
+        """Use camera to take photo."""
         if platform == "android":
             request_permissions(
                 [
@@ -81,6 +89,8 @@ class SaisieManuelleScreen(MDScreen):
             Snackbar(text="Functionnality only available on Android").open()
 
     def on_permissions_callback(self, permissions, grants):
+        """Use camera to take photo."""
+        _ = permissions  # Ignorer temporairement
         if all(grants):
             self.capture_photo()
         else:
@@ -154,74 +164,75 @@ class SaisieManuelleScreen(MDScreen):
     #         Snackbar(text="Caméra non disponible").open()
 
     def capture_photo(self):
-        from jnius import autoclass
-
+        """Use camera to take photo."""
         # Importer les classes nécessaires
-        FileProvider = autoclass("androidx.core.content.FileProvider")
-        Intent = autoclass("android.content.Intent")
-        File = autoclass("java.io.File")
-        Environment = autoclass("android.os.Environment")
-        MediaStore = autoclass("android.provider.MediaStore")
-        PythonActivity = autoclass("org.kivy.android.PythonActivity")
+        file_provider = autoclass("androidx.core.content.FileProvider")
+        intent = autoclass("android.content.Intent")
+        file = autoclass("java.io.File")
+        environment = autoclass("android.os.Environment")
+        media_store = autoclass("android.provider.MediaStore")
+        python_activity = autoclass("org.kivy.android.PythonActivity")
 
         # Chemin du fichier pour enregistrer la photo
         file_path = os.path.join(
-            PythonActivity.mActivity.getExternalFilesDir(
-                Environment.DIRECTORY_PICTURES
+            python_activity.mActivity.getExternalFilesDir(
+                environment.DIRECTORY_PICTURES
             ).getAbsolutePath(),
             generate_file_name(),
         )
-        logging.debug(f"File path : {file_path}")
+        logging.debug("File path : %s", file_path)
 
         # Création du fichier
-        photo_file = File(file_path)
+        photo_file = file(file_path)
         if not photo_file.exists():
             try:
                 photo_file.createNewFile()
-                logging.info(f"File created at {file_path}")
-            except Exception as e:
-                logging.error(f"Failed to create file: {e}")
-                return  # Arrêter si la création échoue
+                logging.info("File created at %s", file_path)
+            except OSError as e:
+                logging.error("Failed to create file due to OS error: %s", e)
+                return
 
         # Créer un URI pour le fichier avec FileProvider
         authority = "org.test.trackerapp.fileprovider"
-        uri = FileProvider.getUriForFile(
-            PythonActivity.mActivity, authority, photo_file
+        uri = file_provider.getUriForFile(
+            python_activity.mActivity, authority, photo_file
         )
 
         self.img_uri = uri
 
         # Création de l'intent pour capturer une image
-        intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent = intent(media_store.ACTION_IMAGE_CAPTURE)
 
         # Ajout de l'URI à l'intent sans conversion en chaîne
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, uri.toString())
+        intent.putExtra(media_store.EXTRA_OUTPUT, uri.toString())
 
         # Accorder les permissions URI
         intent.addFlags(
-            Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-            | Intent.FLAG_GRANT_READ_URI_PERMISSION
+            intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            | intent.FLAG_GRANT_READ_URI_PERMISSION
         )
 
         # Vérifier si l'intent de capture d'image peut être géré
-        package_manager = PythonActivity.mActivity.getPackageManager()
+        package_manager = python_activity.mActivity.getPackageManager()
         if intent.resolveActivity(package_manager) is not None:
             logging.info("Launching camera...")
-            PythonActivity.mActivity.startActivityForResult(intent, 0)
+            python_activity.mActivity.startActivityForResult(intent, 0)
         else:
             logging.info("No camera app available...")
             Snackbar(text="Caméra non disponible").open()
 
     def on_activity_result(self, request_code, result_code, data):
+        """Callback after camera."""
+        _ = data  # Ignorer temporairement
         logging.info("on_activity_result called")
-        logging.info(f"[request_code] {request_code}")
-        logging.info(f"result_code: {result_code}")
+        logging.info("[request_code] %s", request_code)
+        logging.info("result_code: %s", result_code)
 
         if platform == "android":
             if request_code == 0 and result_code == -1:
                 logging.info("Photo capture succeeded!")
                 if self.img_uri is not None:
-                    logging.info(f"Image URI: {self.img_uri.toString()}")
+                    logging.info("Image URI: %s", self.img_uri.toString())
 
                 # Mettre à jour l'aperçu de l'image avec l'URI
                 self.ids.image_preview.source = self.img_uri.toString()
@@ -254,7 +265,7 @@ class SaisieManuelleScreen(MDScreen):
     #                 )
 
     def validate_form(self):
-        """Valide les données du formulaire."""
+        """Validate data form."""
         errors = []
 
         libelle = self.ids.field_libelle.text
@@ -277,7 +288,7 @@ class SaisieManuelleScreen(MDScreen):
             self.process_form()
 
     def show_errors(self, errors):
-        """Affiche une boîte de dialogue avec les erreurs de validation."""
+        """Display errors."""
         error_message = "\n".join(errors)
         self.dialog = MDDialog(
             title="Erreurs de validation",
@@ -289,7 +300,7 @@ class SaisieManuelleScreen(MDScreen):
         self.dialog.open()
 
     def process_form(self):
-        """Traite les données si la validation est réussie."""
+        """Process form data."""
         unique_key = self.ids.field_libelle.text
         data = {
             unique_key: {
@@ -305,7 +316,7 @@ class SaisieManuelleScreen(MDScreen):
         print(data)
 
         try:
-            with open("database.json", "r") as fichier:
+            with open("database.json", encoding="utf-8") as fichier:
                 donnees = json.load(fichier)
             if isinstance(donnees, dict):
                 donnees.update(data)
@@ -323,18 +334,19 @@ class SaisieManuelleScreen(MDScreen):
             return
 
         try:
-            with open("database.json", "w") as fichier:
+            with open("database.json", "w", encoding="utf-8") as fichier:
                 json.dump(donnees, fichier, indent=4)
             print("Données enregistrées avec succès.")
             Snackbar(text="Données enregistrées avec succès!").open()
             self.schedule_redirection()
-        except Exception as e:
-            print(f"Erreur lors de l'enregistrement des données : {e}")
+        except OSError as e:
+            logging.error("Failed to create file due to OS error: %s", e)
 
     def schedule_redirection(self):
-        """Planifie la redirection vers l'écran d'accueil."""
+        """Schedule redirection to home screen."""
         self.clock = Clock.schedule_once(self.redirect_to_home, 2)
 
-    def redirect_to_home(self, *args):
-        """Redirige vers l'écran d'accueil."""
+    # def redirect_to_home(self, *args):
+    def redirect_to_home(self, *_):
+        """Redirect to home screen."""
         self.manager.current = "accueil"

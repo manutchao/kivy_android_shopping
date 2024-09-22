@@ -1,33 +1,37 @@
+"""Database screen."""
+
 import json
 
-from kivy.uix.screenmanager import Screen, ScreenManager
+# from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.uix.list import OneLineListItem
 from kivymd.uix.screen import MDScreen
 
 
 class DatabaseScreen(MDScreen):
+    """Database screen."""
+
     def on_enter(self):
         """Charge les données JSON lorsque l'écran devient actif."""
         self.load_json_data()
 
     def load_json_data(self):
-        """Load data from json file and display in list"""
+        """Load data from json file and display in list."""
         try:
-            with open("database.json", "r") as f:
+            with open("database.json", encoding="utf-8") as f:
                 data = json.load(f)
 
             self.ids.data_list.clear_widgets()
 
             for product_dict in data:
-                for product_name, details in product_dict.items():
-                    elem = OneLineListItem(text=product_name)
+                for name, detail in product_dict.items():
+                    elem = OneLineListItem(text=name)
 
                     elem.bind(
-                        on_release=lambda instance: self.on_item_click(
-                            product_name, details
+                        on_release=lambda instance, name=name, detail=detail: self.on_item_click(
+                            name, detail
                         )
                     )
-                    # Ajoute l'élément à la liste
+
                     self.ids.data_list.add_widget(elem)
 
             # # Ajouter chaque élément du JSON à la liste
@@ -51,7 +55,9 @@ class DatabaseScreen(MDScreen):
 
     def on_item_click(self, item_title, item_data):
         """Redirige vers la page d'ajout avec les champs pré-remplis."""
-        add_screen = self.manager.get_screen("content_item")
+        _ = item_title  # Ignorer temporairement
+        _ = item_data  # Ignorer temporairement
+        # add_screen = self.manager.get_screen("content_item")
         # add_screen.ids.field_libelle.text = item_title
         # add_screen.ids.field_brand.text = item_data.get("brand", None)
         # add_screen.ids.field_barcode.text = item_data.get("barcode", None)

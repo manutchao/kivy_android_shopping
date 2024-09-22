@@ -1,5 +1,7 @@
+"""Home screen."""
+
 from kivymd.uix.screen import MDScreen
 
 
 class AccueilScreen(MDScreen):
-    pass
+    """Home screen."""

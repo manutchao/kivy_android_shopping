@@ -1,31 +1,37 @@
+"""Detail screen."""
+
 from kivy.lang import Builder
-from kivy.metrics import dp
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.slider import Slider
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.button import MDIconButton, MDRoundFlatIconButton
-from kivymd.uix.label import MDLabel
+
+# from kivy.metrics import dp
+# from kivy.uix.boxlayout import BoxLayout
+# from kivy.uix.floatlayout import FloatLayout
+# from kivy.uix.slider import Slider
+# from kivymd.uix.boxlayout import MDBoxLayout
+# from kivymd.uix.button import MDIconButton, MDRoundFlatIconButton
+# from kivymd.uix.label import MDLabel
 from kivymd.uix.screen import Screen
-from kivymd.uix.textfield import MDTextField
-from kivymd.uix.toolbar import MDTopAppBar
+
+# from kivymd.uix.textfield import MDTextField
+# from kivymd.uix.toolbar import MDTopAppBar
 
 Builder.load_file("kv/detail_screen.kv")
 
 
 class DetailScreen(Screen):
+    """Detail screen."""
+
     def __init__(self, app, **kwargs):
-        super(DetailScreen, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.app = app
 
     def update_screen(self, element):
-        pass
+        """Update."""
 
     def submit(self):
-        pass
+        """Submit."""
 
     def reset(self):
-        pass
+        """Reset."""
 
     #     detail_toolbar = MDTopAppBar(
     #         title="Detail",

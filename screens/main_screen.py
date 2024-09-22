@@ -1,9 +1,12 @@
-from kivy.lang import Builder
+"""Main screen."""
+
+# from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.button import MDRaisedButton
+
+# from kivymd.uix.boxlayout import MDBoxLayout
+# from kivymd.uix.button import MDRaisedButton
 from kivymd.uix.list import MDList, OneLineListItem
 from kivymd.uix.screen import Screen
 from kivymd.uix.toolbar import MDTopAppBar
@@ -13,10 +16,13 @@ from screens.scanner_screen import ScannerScreen
 
 
 class MainScreen(Screen):
+    """Main screen."""
+
     def __init__(self, **kwargs):
-        super(MainScreen, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.app = None
         self.setup_layout()
+        self.data_list = MDList()
 
     def set_app(self, app):
         """Initialize the application and bind scanner events."""
@@ -62,7 +68,6 @@ class MainScreen(Screen):
         item = MDBottomNavigationItem(
             name="Base de données", text="Base de données", icon="database"
         )
-        self.data_list = MDList()
         scroll_view = ScrollView()
         scroll_view.add_widget(self.data_list)
         item.add_widget(scroll_view)
@@ -90,6 +95,8 @@ class MainScreen(Screen):
 
     def on_database_tab_press(self, instance):
         """Populate the list with data when the database tab is selected."""
+        _ = instance  # Ignorer l'argument non utilisé
+
         if not self.app:
             return
         data = self.app.load_json_data()

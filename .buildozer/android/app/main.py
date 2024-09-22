@@ -1,3 +1,7 @@
+"""Android app kivy."""
+
+import logging
+
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager
 from kivymd.app import MDApp
@@ -12,20 +16,31 @@ from screens.scanner import ScannerScreen
 
 
 class MyScreenManager(ScreenManager):
-    pass
+    """Screen Manager."""
 
 
 class MainApp(MDApp):
+    """App."""
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.title = "MKivy_android_shopping"
+
     def build(self):
+        """Build app."""
         self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "Brown"
-        self.title = "MKivy_andoid__shopping"
+
         Builder.load_file("kv/accueil.kv")
         Builder.load_file("kv/database.kv")
         Builder.load_file("kv/saisie_manuelle.kv")
         Builder.load_file("kv/scanner.kv")
         Builder.load_file("kv/content_item.kv")
         return Builder.load_file("kv/main.kv")
+
+    def on_start(self):
+        """Log app start."""
+        logging.debug("App has started")
 
 
 if __name__ == "__main__":

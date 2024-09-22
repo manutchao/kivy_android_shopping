@@ -1,4 +1,6 @@
-# scanner_screen.py
+"""Scanner."""
+
+import logging
 
 from kivy.uix.boxlayout import BoxLayout
 from kivy_garden.zbarcam import ZBarCam
@@ -6,8 +8,10 @@ from kivymd.uix.button import MDRaisedButton
 
 
 class ScannerScreen(BoxLayout):
+    """Scanner screen."""
+
     def __init__(self, app=None, **kwargs):
-        super(ScannerScreen, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.orientation = "vertical"
         self.padding = 10
         self.spacing = 10
@@ -36,5 +40,10 @@ class ScannerScreen(BoxLayout):
 
     def start_scan(self, instance):
         """Démarre le scanner en ajustant la hauteur du layout du scanner."""
+        _ = instance  # Ignorer l'argument non utilisé
         self.zbarcam_layout.height = self.height
         self.zbarcam_layout.size_hint_y = 1
+
+    def on_start(self):
+        """Log app start."""
+        logging.debug("Scanner screen displayed")
