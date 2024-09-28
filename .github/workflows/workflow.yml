@@ -23,4 +23,4 @@ jobs:
       - name: Run Pycodestyle
         run: pycodestyle . --max-line-length=100 --exclude=.buildozer
       - name: Run Vulture
-        run: vulture . -min-confidence=80 --exclude=.buildozer/ --exclude=python-for-android/
+        run: vulture . --exclude=.buildozer,python-for-android
