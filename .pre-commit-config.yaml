@@ -64,7 +64,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
-        exclude: "^(.buildozer/|python-for-android/)"
+        exclude: "^(.buildozer/|python-for-android/|README\\.md$)"
 
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.9
