@@ -1,0 +1,26 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      #Setup Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: Install the necessary packages
+        run: pip install pylint black pycodestyle vulture pipenv
+      - name: Run pylint
+        run: pylint main.py --disable=line-too-long
+      - name: Run black
+        run: black .
+      - name: Run pip check
+        run: pip check
+      - name: Run Pycodestyle
+        run: pycodestyle . --max-line-length=100
+      - name: Run Vulture
+        run: vulture .
