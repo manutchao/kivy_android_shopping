@@ -21,6 +21,6 @@ jobs:
       - name: Run pip check
         run: pip check
       - name: Run Pycodestyle
-        run: pycodestyle . --max-line-length=100
+        run: pycodestyle . --max-line-length=100 --exclude=.buildozer
       - name: Run Vulture
         run: vulture .
